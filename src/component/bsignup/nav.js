@@ -8,7 +8,7 @@ const Nav = () => {
   return (
     <div className="nav center">
       <div className="rightlink center" onClick={() => navigate("/")}>
-        <img src="/images/logo.png" alt="not" height={"60px"} />
+        <img src={require("../images/logo.png")} alt="not" height={"60px"} />
         <span>
           <span>&nbsp;S</span>TUDY<span>A</span>RENA
         </span>
