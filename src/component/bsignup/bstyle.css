@@ -1,0 +1,120 @@
+.main{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+/* navbar */
+.nav{
+    width: calc(100%-20rem);
+    height: 70px;
+    padding: 0 10rem;
+    margin-top: 3rem;
+    justify-content: space-between;
+    overflow: hidden;
+}
+.nav .rightlink{
+    font-size: 3rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--trans1);
+}
+.nav .rightlink:hover{
+    transform: scale(1.05);
+}
+.nav .rightlink span span{
+    font-size: 3.8rem;
+    font-weight: 900;
+}
+
+.nav .leftlink{
+
+    overflow: hidden;
+}
+.nav .leftlink a{
+    margin: 0 2rem;
+    font-size: 1.5rem;
+    color: var(--Vclr);
+    cursor: pointer;
+    transition: var(--trans1);
+    text-decoration: none;
+}
+.nav .leftlink a:hover{
+    transform: scale(1.05);
+    color: var(--IIIclr);
+}
+/* home */
+.home{
+    padding: 0 10rem;
+    height: 85%;
+    justify-content: space-between;
+    overflow: hidden;
+}
+.home .left{
+    width: 50%;
+}
+.left h1{
+    color: var(--Vclr);
+    margin-bottom:100px;
+}
+.left .heading{
+    color: var(--IIIclr);
+    font-weight: 900;
+    font-size: 4rem;
+    letter-spacing: 1px;
+}
+.home img{
+    width: 45%;
+}
+/* form */
+.form{
+    padding: 0 10rem;
+    height: 85%;
+    width: 100%;
+    flex-direction: column;
+    overflow: hidden;
+}
+.form .links a{
+    margin-right: 3rem;
+    text-decoration: none;
+    color: var(--Iclr);
+    transform: scale(0.90);
+    transition: var(--trans1);
+}
+.form .links a:hover{
+    transform: scale(1);
+    color: var(--IIIclr);
+}
+
+.form form{
+    width: 95%;
+    padding: 2.4rem;
+    font-size: 2rem;
+    margin: 1rem;
+    margin-top: 6rem;
+    border-radius: 1rem ;
+    box-shadow: 0px 0px 10px var(--Vclr),
+    inset 0px 0px 20px var(--Vclr);
+    
+}
+.form form input{
+    padding:  1rem;
+    font-size: 2rem;
+    border-radius: 1rem ;
+}
+.form form button{
+    background-color: var(--VIclr);
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-shadow: 0px 0px 1px white;
+    border-radius: 1rem ;
+    padding: .6rem 2rem;
+    transform: scale(0.95);
+    border: none;
+    box-shadow:  1px 1px 10px var(--VIclr);
+    transition: var(--trans1);
+}
+.form form button:hover{
+    background-color: var(--VIclr);
+    transform: scale(1);
+}

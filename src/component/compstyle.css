@@ -1,0 +1,40 @@
+/* cards */
+.card{
+    border: none;
+}
+.card h2{
+    font-size: 3rem;
+    font-weight: 600;
+}
+.card p{
+    font-size: 1.5rem;
+    color: var(--Vclr);
+    padding-top: 1rem;
+}
+.card .card-body{
+    padding: 0;
+    padding-right: 2rem;
+}
+.card button{
+    background-color: var(--VIclr);
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-shadow: 0px 0px 1px white;
+    padding: .6rem 2rem;
+    transform: scale(0.95);
+    border: none;
+    box-shadow:  1px 1px 10px var(--VIclr);
+    transition: var(--trans1);
+}
+.card button:hover{
+    background-color: var(--VIclr);
+    transform: scale(1);
+}
+.card p:last-child{
+    padding-top: 2rem;
+}
+.card p:last-child span{
+    color: blue;
+    cursor: pointer;
+}

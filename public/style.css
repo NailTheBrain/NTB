@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,400;0,600;0,700;1,200;1,900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: 'Source Sans Pro', sans-serif;;
+}
+html{
+    font-size: 62.5%;
+    background-color: var(--IVclr);
+}
+:root{
+    --Iclr : rgb(123, 117, 117);
+    --IIclr : #fff;
+    --IIIclr : #000;
+    --IVclr : rgb(223, 223, 223);
+    --Vclr : grey;
+    --VIclr : rgb(57,183,255);
+    --trans1 : all .2s ease;
+}
+h1,h2,h3{
+    overflow: hidden;
+}
+.none{
+    display: none;
+}
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
