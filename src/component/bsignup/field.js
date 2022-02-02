@@ -11,7 +11,7 @@ const Field = (props) => {
           <div className="row">
             <Card
               title="Academics"
-              text="Data privacy is important to HackerRank, and when it comes to your data, we’re committed to protecting it and providing transparency about the information we collect from you and how we use it. "
+              text="Making continuous efforts to help and build up your future, Study Arena provides you with CSE and IT subjects related content, books and resources"
               btnText="Sign IN"
               btnlink="/form/signin"
               lastmsg="Don't have an account?"
@@ -21,7 +21,7 @@ const Field = (props) => {
             />
             <Card
               title="Development"
-              text="Data privacy is important to HackerRank, and when it comes to your data, we’re committed to protecting it and providing transparency about the information we collect from you and how we use it. "
+              text="Study Arena aims to make elusive dreams come true and reinforce people's confidence hence advancing you with our development courses and practices."
               btnText="Sign IN"
               btnlink="/form/signin"
               lastmsg="Don't have an account?"

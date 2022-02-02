@@ -1,11 +1,16 @@
 import React from 'react';
-import Main from "./component/bsignup/main"
+import { Route, Routes } from 'react-router-dom';
+import Maina from './component/asignup/main';
+import Mainb from "./component/bsignup/main"
 
 
 const App = () => {
   return (
-      <Main/>
-  )
+    <Routes>
+      <Route path="/*" element={<Mainb />} />
+      <Route path="/home/*" element={<Maina/>}/>
+    </Routes>
+  );
 };
 
 export default App;

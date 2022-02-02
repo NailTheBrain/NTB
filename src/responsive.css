@@ -1,0 +1,64 @@
+/* lg */ 
+@media (min-width: 1200px) {
+    html{
+        font-size:60% !important;
+    }
+}
+
+/* md */
+@media (min-width: 992px) and (max-width: 1199px) {
+	html{
+        font-size:50% !important;
+    }
+}
+
+/* sm */
+@media (min-width: 768px) and (max-width: 991px) {
+    html{
+        font-size: 40% !important;;
+    }
+    
+}
+
+/* xs */
+@media (max-width: 767px) {
+    html{
+        font-size: 35% !important;;
+    }
+    
+}
+
+/* XS Portrait */
+@media (max-width: 479px) {
+    html{
+        font-size: 30% !important;;
+    }
+    
+}
+
+@media (max-width: 900px) {
+    .nav .leftlink a{
+        font-size: 2rem;
+    }
+    .home .left{
+        width: 100%;
+    }
+	.home img{
+        display: none;
+    }
+    .card p{
+        font-size: 2rem;
+    }
+    #passmsg{
+        top: 0;
+        transform: translateX(0) translateY(-140%);
+    }
+    #passmsg::before{
+        bottom: -25px ;
+        top: auto;
+        transform: rotate(-90deg);
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+    }
+}

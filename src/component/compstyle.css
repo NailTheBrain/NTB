@@ -1,6 +1,7 @@
 /* cards */
 .card{
     border: none;
+    background-color: transparent;
 }
 .card h2{
     font-size: 3rem;
@@ -37,4 +38,12 @@
 .card p:last-child span{
     color: blue;
     cursor: pointer;
+}
+/* a;ert box */
+.modal{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
