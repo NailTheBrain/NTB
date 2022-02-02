@@ -3,6 +3,8 @@ import "./bstyle.css";
 import { passCheck, showCall } from "./passCheck";
 import { useState } from "react";
 import { useLocation,useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Signup() {
   let navigate = useNavigate();
@@ -18,7 +20,19 @@ export default function Signup() {
 
   const [password, setPassword] = useState(false);
   const [confirmPassword, setconfirmPassword] = useState(false);
+  const [name, setName] = useState("");
   const [mail, setMail] = useState("");
+
+  function chkname(e){
+     e = e.toUpperCase()
+       if(e.length>=1){
+         if (
+           e[e.length - 1].match(/[A-Z]/) ||
+           e[e.length - 1] === " "
+         )
+           setName(e);
+       }else setName(e);
+      }
   function passcheckcall(e) {
     let chk = passCheck(e);
     chk
@@ -36,16 +50,26 @@ export default function Signup() {
     setconfirmPassword(x === e);
   }
 
+
   function sub() {
-    if (data === "aup" && mail.split("@")[1] !== "miet.ac.in") {
-      alert("Please enter valid student mail id");
+    if (data === "ain" && mail.split("@")[1] !== "miet.ac.in") {
+      toast.error("Please enter valid student mail id 😕", {
+        position: "top-center",
+      });
       setMail("");
-    } else if (!password) 
-      alert("Enter Password with correct validation as shown");
-      else if(!confirmPassword)
-      alert("Password not matched");
-      else alert("Done");
+    } else if (!password) {
+      toast.error("Please enter Password with right validation 😕", {
+        position: "top-center",
+      });
+    } else if (!confirmPassword) toast.error("Please Match the Password 😕", {
+      position: "top-center",
+    });
+    else
+      toast.success(" Done 👌", {
+        position: "top-center",
+      });
   }
+
 
   return (
     <>
@@ -59,7 +83,9 @@ export default function Signup() {
             <input
               type="text"
               className="form-control"
-              // id="exampleInputEmail1"
+              value={name}
+              onChange={(e) => chkname(e.target.value)}
+              maxLength="20"
             />
           </div>
           <div className="mb-3">
@@ -138,6 +164,7 @@ export default function Signup() {
           </p>
         </form>
       </div>
+      <ToastContainer />
     </>
   );
 }

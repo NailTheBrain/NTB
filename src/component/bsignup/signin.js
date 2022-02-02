@@ -3,6 +3,8 @@ import { passCheck, showCall } from "./passCheck";
 import { useState} from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import "./bstyle.css";
+ import { ToastContainer, toast } from "react-toastify";
+ import "react-toastify/dist/ReactToastify.css";
 
 
 
@@ -32,12 +34,18 @@ export default function Signin() {
 
   function sub(){
     if (data === "ain" && mail.split("@")[1]!=="miet.ac.in"){
-      alert("Please enter valid student mail id");
+      toast.error("Please enter valid student mail id 😕", {
+        position: "top-center",
+      });
       setMail("")
     }
     else if(!password){
-      alert("Enter Password with correct validation as shown")
-    }else alert("Done")
+      toast.error("Please enter Password with right validation 😕", {
+        position: "top-center",
+      });
+    }else toast.success(" Done 👌", {
+      position: "top-center",
+    });
   }
 
   return (
@@ -110,6 +118,7 @@ export default function Signin() {
           </p>
         </form>
       </div>
+      <ToastContainer />
     </>
   );
 }
