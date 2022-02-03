@@ -7,22 +7,21 @@ import "./bstyle.css";
  import "react-toastify/dist/ReactToastify.css";
 
 
-
+ 
 
 
 export default function Signin() {
-    const navigate = useNavigate();
-    const data = useLocation().state.type;
-    let show;
-    let showmail;
-    data === "ain" ? (show = "Academics") : (show = "Development");
-    data === "ain"
-      ? (showmail = "Please enter student mail id")
-      : (showmail = "We'll never share your email with anyone.");
+  const navigate = useNavigate();
+  const data = useLocation().state.type;
+  let show;
+  let showmail;
+  data === "ain" ? (show = "Academics") : (show = "Development");
+  data === "ain"
+    ? (showmail = "Please enter student mail id")
+    : (showmail = "We'll never share your email with anyone.");
   const [password, setPassword] = useState(false);
   const [mail, setMail] = useState("");
-
-
+  
 
   function passcheckcall(e) {
     let chk = passCheck(e);
@@ -43,37 +42,41 @@ export default function Signin() {
       toast.error("Please enter Password with right validation 😕", {
         position: "top-center",
       });
-    }else toast.success(" Done 👌", {
-      position: "top-center",
-    });
+    }else {
+      toast.success(" Done 👌", {
+        position: "top-center",
+      });
+      navigate("/academics");
+    }
   }
 
   return (
     <>
-      <div className="row">
+      <div className="row center">
         <center>
-          <h2>{show} Sign IN</h2>
+          <h2>{show}</h2>
+          <h2> Sign IN</h2>
         </center>
         <form>
-          <div className="mb-3">
-            <label className="form-label">Email address</label>
+          <div className="mb-3 input">
             <input
               type="email"
               className="form-control"
               aria-describedby="emailHelp"
               value={mail}
               onChange={(e) => setMail(e.target.value)}
+              placeholder="Email id"
             />
-            <div id="emailHelp" className="form-text">
-              {showmail}
-            </div>
           </div>
-          <div className="mb-3 pass">
-            <label className="form-label">Password</label>
+          <div id="emailHelp" className="form-text">
+            {showmail}
+          </div>
+          <div className="mb-3 pass input">
             <input
               type="password"
               className="form-control"
               onChange={(e) => passcheckcall(e.target.value)}
+              placeholder="Password"
             />
             <i
               className="far fa-eye"

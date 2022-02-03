@@ -1,5 +1,8 @@
 import React from 'react';
+import Nav from "./nav"
 
 export default function Maina() {
-  return <div><h1>login to main page</h1></div>;
+  return (
+    <Nav/>
+  )
 }

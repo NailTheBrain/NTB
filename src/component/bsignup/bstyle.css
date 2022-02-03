@@ -36,7 +36,7 @@
 }
 .nav .leftlink a{
     margin: 0 2rem;
-    font-size: 1.5rem;
+    font-size: 2rem;
     color: var(--Vclr);
     cursor: pointer;
     transition: var(--trans1);
@@ -45,6 +45,16 @@
 .nav .leftlink a:hover{
     transform: scale(1.05);
     color: var(--IIIclr);
+}
+.nav .leftlink a img{
+    height: 2.5rem;
+    border-radius: 50%;
+    padding-right: .2rem;
+}
+.nav .leftlink a i{
+    height: 2.5rem;
+    padding-left: .4rem;
+    color: red;
 }
 /* home */
 .home{
@@ -65,9 +75,14 @@
     font-weight: 900;
     font-size: 4rem;
     letter-spacing: 1px;
+    margin-top: 10rem;
 }
 .home img{
     width: 45%;
+}
+
+.home .row .card{
+    width: 80%;
 }
 /* form */
 .form{
@@ -76,7 +91,6 @@
     width: 100%;
     flex-direction: column;
     position: relative;
-    /* overflow: hidden; */
 }
 .form .links a{
     margin-right: 3rem;
@@ -91,10 +105,13 @@
 }
 .row{
     overflow: initial;
-
+}
+.row h2:nth-child(1){
+    font-size: 3rem;
+    font-weight: 600;
 }
 .form form{
-    width: 95%;
+    width: 70%;
     padding: 2.4rem;
     font-size: 2rem;
     margin: 1rem;
@@ -110,9 +127,22 @@
 .form form input{
     padding:  1rem;
     font-size: 2rem;
-    border-radius: 1rem ;
+    background-color: transparent;
+    outline: none;
+    border-bottom: 1px solid var(--VIclr);
+    transition: var(--trans1);
+}
+.form form input:focus,
+.form form input:hover{
+    outline: none;
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+    border-bottom: 3px solid var(--VIclr);
 }
 .form form button{
+    width: 100%;
+    margin-top: 2rem;
     background-color: var(--VIclr);
     font-size: 2rem;
     font-weight: 600;
@@ -171,7 +201,8 @@
     /* border: 1px solid black; */
 }
 .pass i{
-    color: red;
+    color: var(--VIclr);
+    font-weight: 600;
     cursor: pointer;
     position: absolute;
     bottom: 1.5rem;

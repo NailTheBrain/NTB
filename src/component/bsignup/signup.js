@@ -20,19 +20,24 @@ export default function Signup() {
 
   const [password, setPassword] = useState(false);
   const [confirmPassword, setconfirmPassword] = useState(false);
-  const [name, setName] = useState("");
+  const [fname, setFName] = useState("");
+  const [lname, setLName] = useState("");
   const [mail, setMail] = useState("");
 
-  function chkname(e){
+  function chkfname(e){
      e = e.toUpperCase()
        if(e.length>=1){
-         if (
-           e[e.length - 1].match(/[A-Z]/) ||
-           e[e.length - 1] === " "
-         )
-           setName(e);
-       }else setName(e);
-      }
+         if (e[e.length - 1].match(/[A-Z]/))
+           setFName(e);
+       }else setFName(e);
+    }
+  function chklname(e){
+     e = e.toUpperCase()
+       if(e.length>=1){
+         if (e[e.length - 1].match(/[A-Z]/))
+           setLName(e);
+       }else setLName(e);
+    }
   function passcheckcall(e) {
     let chk = passCheck(e);
     chk
@@ -61,52 +66,68 @@ export default function Signup() {
       toast.error("Please enter Password with right validation 😕", {
         position: "top-center",
       });
-    } else if (!confirmPassword) toast.error("Please Match the Password 😕", {
-      position: "top-center",
-    });
-    else
+    } else if (!confirmPassword)
+      toast.error("Please Match the Password 😕", {
+        position: "top-center",
+      });
+    else {
       toast.success(" Done 👌", {
         position: "top-center",
       });
+      navigate("/academics");
+    }
   }
 
 
   return (
     <>
-      <div className="row">
+      <div className="row center">
         <center>
-          <h2>{show} Sign UP</h2>
+          <h2>{show}</h2>
+          <h2>Sign UP</h2>
         </center>
         <form>
-          <div className="mb-3">
-            <label className="form-label">Full Name</label>
-            <input
-              type="text"
-              className="form-control"
-              value={name}
-              onChange={(e) => chkname(e.target.value)}
-              maxLength="20"
-            />
+          <div className="mb-3 ">
+            <div className="center" style={{ justifyContent: "space-between" }}>
+              <input
+                type="text"
+                className="form-control"
+                value={fname}
+                onChange={(e) => chkfname(e.target.value)}
+                maxLength="10"
+                style={{ width: "45%" }}
+                placeholder="First"
+              />
+              <input
+                type="text"
+                className="form-control"
+                value={lname}
+                onChange={(e) => chklname(e.target.value)}
+                maxLength="10"
+                style={{ width: "45%" }}
+                placeholder="Last"
+              />
+            </div>
           </div>
           <div className="mb-3">
-            <label className="form-label">Email address</label>
             <input
               type="email"
               className="form-control"
               onChange={(e) => setMail(e.target.value)}
               aria-describedby="emailHelp"
+              placeholder="Email id"
             />
             <div id="emailHelp" className="form-text">
               {showmail}
             </div>
           </div>
           <div className="mb-3 pass">
-            <label className="form-label">Password</label>
             <input
               type="password"
               className="form-control"
               id="password"
               onChange={(e) => passcheckcall(e.target.value)}
+              placeholder="Password"
             />
             <i
               className="far fa-eye"
@@ -115,11 +136,11 @@ export default function Signup() {
             ></i>
           </div>
           <div className="mb-3 pass">
-            <label className="form-label">Re-enter Password</label>
             <input
               type="password"
               className="form-control"
               onChange={(e) => conpasscheckcall(e.target.value)}
+              placeholder="Re-enter Password"
             />
             <i
               className="far fa-eye"

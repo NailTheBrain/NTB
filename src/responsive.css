@@ -49,6 +49,8 @@
     .card p{
         font-size: 2rem;
     }
+    .form form{
+    width: 90%;}
     #passmsg{
         top: 0;
         transform: translateX(0) translateY(-140%);
