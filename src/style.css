@@ -4,9 +4,11 @@
     padding: 0;
     overflow-x: hidden;
     font-family: 'Source Sans Pro', sans-serif;;
+    scroll-behavior: smooth;
 }
 html{
     font-size: 62.5%;
+    background: url("./component/images/back.jpeg");
 }
 :root{
     --Iclr : rgb(123, 117, 117);
@@ -17,7 +19,7 @@ html{
     --VIclr : rgb(57,183,255);
     --trans1 : all .2s ease;
 }
-h1,h2,h3{
+h1,h2,h3,h4,h5,p,span,a{
     overflow: hidden;
 }
 .none{
@@ -27,4 +29,23 @@ h1,h2,h3{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+/* heading */
+.heading{
+    position: relative;
+}
+.heading h2:first-child{
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    color: rgba(128, 128, 128, 0.15);
+    font-weight: 900;
+    text-transform: uppercase;
+}
+.heading h2:last-child{
+    position: absolute;
+    bottom: 0;
+    font-weight: 900;
+    text-transform: uppercase;
+    z-index: 10;
 }

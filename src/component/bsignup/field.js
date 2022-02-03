@@ -1,12 +1,15 @@
 import React from 'react';
 import Card from '../cards';
 import "./bstyle.css";
+import Heading from "../heading";
 
 const Field = (props) => {
   return (
     <div className="home center">
       <div className="left" style={{ width: "80%" }}>
-        <h1 className="heading">Sign IN</h1>
+        <div className="heading">
+          <Heading text="Sign in" size="8" />
+        </div>
         <div className="container">
           <div className="row">
             <Card
