@@ -1,0 +1,136 @@
+.section-head{
+    width: 100%;
+    height: 15rem;
+    cursor: pointer;
+    padding: 0 2rem;
+    transform: scale(.90);
+    transition: var(--trans1);
+    overflow: hidden;
+    border-radius: 2rem;
+    box-shadow: inset 0px 0px 20px grey, 
+                inset -0px -0px 20px black;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    background-color: transparent;
+    position: relative;
+    color: black;
+    text-decoration: none;
+}
+.section-head:hover{
+    transform: scale(.95);
+    background-color: transparent;
+     box-shadow: inset 0px 0px 20px grey, 
+                inset -0px -0px 20px black,
+                0px 0px 20px grey;
+    color: black;
+}
+.section-head:active{
+    box-shadow: inset 0px 0px 30px black, 
+                inset -0px -0px 30px black;
+    transform: scale(.8);
+}
+.section-head i{
+    position: absolute;
+    top: 60%;
+    font-size: 4rem;
+    transform: scale(0);
+    transition: var(--trans1);
+}
+.section-head:hover i{
+    transform: scale(1);
+    color: var(--VIclr);
+}
+.section-head .Sleft{
+    margin-right: 10%;
+}
+.section-head .Sleft,
+.section-head .Sright{
+    width: 40%;
+    
+}
+.section-bottom{
+    width: 0%;
+    margin: auto;
+    height: 0vh;
+    background-color: white;
+    animation: 1s shrink;
+}
+
+@keyframes shrink {
+    0%{
+        width: 90%;
+        height: 80vh;
+    }
+    100%{
+        width: 0%;
+        height: 0vh;
+    }
+}
+.expand{
+    width: 90%;
+    height: 80vh;
+    animation: 1s expand;
+}
+@keyframes expand {
+    0%{
+        width: 0;
+        height: 0;
+    }
+    100%{
+        width: 90%;
+        height: 80vh;
+    }
+}
+/* contact */
+.contact{
+    width: 100vw;
+    height: 80vh;
+    background: url("../../images/back2.jpeg") center;
+    justify-content: space-around !important;
+}
+.Cleft,.Cright{
+    width: 45%;
+}
+.Cleft  input,
+.Cleft textarea{
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid var(--VIclr);
+    color: white;
+    font-size: 2rem;
+    outline: none;
+    margin-top: 1rem;
+}
+.Cleft input:focus{
+    background-color: transparent;
+    border: none;
+    border-bottom: 5px solid var(--VIclr);
+    color: white;
+    font-size: 2rem;
+}
+.Cleft button{
+    width: 80%;
+    margin: .3rem 10%;
+    margin-top: 2rem;
+    background-color: var(--VIclr);
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-shadow: 0px 0px 1px white;
+    border-radius: 1rem ;
+    padding: .6rem 2rem;
+    transition: var(--trans1);
+}
+.Cleft button:hover{
+    box-shadow:  1px 1px 10px var(--VIclr);
+    background-color: var(--VIclr);
+}
+.Cleft button:active{
+    transform: scale(.8);
+}
+.Cright iframe{
+    width: 100%;
+    height: 50vh;
+    border-radius: 2rem;
+}

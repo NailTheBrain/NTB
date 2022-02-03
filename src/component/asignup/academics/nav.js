@@ -55,7 +55,7 @@ const Nav = () => {
           to={"/fields"}
           className="center"
         >
-          <i class="fas fa-sign-out-alt"></i>
+          <i className="fas fa-sign-out-alt"></i>
         </NavLink>
       </div>
     </div>
