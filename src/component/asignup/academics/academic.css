@@ -81,6 +81,7 @@
         height: 80vh;
     }
 }
+
 /* contact */
 .contact{
     width: 100vw;
@@ -101,36 +102,27 @@
     font-size: 2rem;
     outline: none;
     margin-top: 1rem;
+    transition: var(--trans1);
 }
+.Cleft textarea:hover,
+.Cleft textarea:focus,
+.Cleft input:hover,
 .Cleft input:focus{
     background-color: transparent;
     border: none;
     border-bottom: 5px solid var(--VIclr);
     color: white;
     font-size: 2rem;
-}
-.Cleft button{
-    width: 80%;
-    margin: .3rem 10%;
-    margin-top: 2rem;
-    background-color: var(--VIclr);
-    font-size: 2rem;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-shadow: 0px 0px 1px white;
-    border-radius: 1rem ;
-    padding: .6rem 2rem;
-    transition: var(--trans1);
-}
-.Cleft button:hover{
-    box-shadow:  1px 1px 10px var(--VIclr);
-    background-color: var(--VIclr);
-}
-.Cleft button:active{
-    transform: scale(.8);
+    outline: none;
+    box-shadow: none;
 }
 .Cright iframe{
     width: 100%;
     height: 50vh;
     border-radius: 2rem;
+    transform: scale(.95);
+    transition: var(--trans1);
+}
+.Cright iframe:hover{
+    transform: scale(1);
 }

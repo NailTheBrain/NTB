@@ -6,6 +6,7 @@
 .card h2{
     font-size: 3rem;
     font-weight: 600;
+    margin-bottom: 0 !important;
 }
 .card p{
     font-size: 1.5rem;
@@ -46,4 +47,70 @@
     bottom: 0;
     left: 0;
     right: 0;
+}
+/* buttons */
+.button{
+    width: 100%;
+    margin-top: 2rem;
+    background-color: var(--VIclr);
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: white;
+    text-shadow: 0px 0px 1px white;
+    border-radius: 1rem ;
+    padding: .6rem 2rem;
+    transform: scale(0.95);
+    border: none;
+    box-shadow:  1px 1px 10px var(--VIclr);
+    transition: var(--trans1);
+}
+.button:hover{
+    background-color: var(--VIclr);
+    transform: scale(1);
+}
+.button:active{
+    transform: scale(.95);
+}
+/* hover scale */
+.hover-scale{
+    transform: scale(.95);
+    transition: var(--trans1);
+}
+.hover-scale:hover{
+    transform: scale(1);
+}
+/* none */
+.none{
+    display: none;
+}
+/* center */
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* heading */
+.heading{
+    position: relative;
+}
+.heading h5:first-child{
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    color: rgba(128, 128, 128, 0.15);
+    font-weight: 900;
+    text-transform: uppercase;
+}
+.heading h5:last-child{
+    position: absolute;
+    bottom: 0;
+    font-weight: 900;
+    text-transform: uppercase;
+    z-index: 10;
+}
+/* hr */
+hr{
+    width: 90%;
+    margin: auto;
 }

@@ -175,7 +175,7 @@ export default function Signup() {
           </div>
           <button
             type="button"
-            className="btn btn-primary"
+            className="button"
             onClick={() => sub()}
           >
             Submit

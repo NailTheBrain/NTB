@@ -111,7 +111,7 @@ export default function Signin() {
           </div>
           <button
             type="button"
-            className="btn btn-primary"
+            className="button"
             onClick={() => sub()}
           >
             Submit

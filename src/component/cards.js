@@ -8,8 +8,8 @@ const Cards = (props) => {
   const link2 = props.lastlink
   const types = props.typ
   return (
-    <div className="col-sm-6" style={{ padding: "0" }}>
-      <div className="card">
+    <div className="col-sm-6 card" style={{ padding: "0" }}>
+      {/* <div className="card"> */}
         <div className="card-body">
           <h2 className="card-title">{props.title}</h2>
           <p className="card-text">{props.text}</p>
@@ -20,7 +20,7 @@ const Cards = (props) => {
             {props.lastmsg} <span> {props.lastword}</span>
           </p>
         </div>
-      </div>
+      {/* </div> */}
     </div>
   );
 };

@@ -6,12 +6,11 @@ import Heading from "../heading";
 const Field = (props) => {
   return (
     <div className="home center">
-      <div className="left" style={{ width: "80%" }}>
+      <div className="left" style={{ width: "100%" }}>
         <div className="heading">
-          <Heading text="Sign in" size="8" />
+          <Heading text="Sign in" size="12" />
         </div>
-        <div className="container">
-          <div className="row">
+        <div className="content center">
             <Card
               title="Academics"
               text="Making continuous efforts to help and build up your future, Study Arena provides you with CSE and IT subjects related content, books and resources"
@@ -34,7 +33,6 @@ const Field = (props) => {
             />
           </div>
         </div>
-      </div>
     </div>
   );
 };

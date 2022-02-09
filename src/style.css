@@ -22,30 +22,3 @@ html{
 h1,h2,h3,h4,h5,p,span,a{
     overflow: hidden;
 }
-.none{
-    display: none;
-}
-.center{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-/* heading */
-.heading{
-    position: relative;
-}
-.heading h2:first-child{
-    position: absolute;
-    top: 0;
-    z-index: 1;
-    color: rgba(128, 128, 128, 0.15);
-    font-weight: 900;
-    text-transform: uppercase;
-}
-.heading h2:last-child{
-    position: absolute;
-    bottom: 0;
-    font-weight: 900;
-    text-transform: uppercase;
-    z-index: 10;
-}
