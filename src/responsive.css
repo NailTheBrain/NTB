@@ -88,4 +88,16 @@
   .Cright {
     width: 90%;
   }
+  /* books page */
+  .books-top{
+    flex-direction: column;
+  }
+  .books-left,
+  .books-right{
+    width: 90%;
+    margin: 3rem 0;
+  }
+  .booksNav{
+    height: 60px;
+  }
 }

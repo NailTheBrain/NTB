@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,700;1,400&display=swap');
 .main{
     width: 100vw;
     height: 100vh;
@@ -31,6 +32,7 @@
     transform: scale(1.05);
 }
 .nav .rightlink span span{
+    font-family: 'Lobster Two', cursive;
     font-size: 3.8rem;
     font-weight: 900;
 }

@@ -18,6 +18,8 @@ html{
     --Vclr : grey;
     --VIclr : rgb(57,183,255);
     --trans1 : all .2s ease;
+    --trans2 : all .4s ease;
+    --trans3 : all .6s ease;
 }
 h1,h2,h3,h4,h5,p,span,a{
     overflow: hidden;

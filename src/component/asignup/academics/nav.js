@@ -7,10 +7,10 @@ const Nav = () => {
 
   return (
     <div className="nav center">
-      <div className="rightlink center" onClick={() => navigate("/")}>
+      <div className="rightlink center" onClick={() => navigate("/academics")}>
         <img src={require("../../images/logo.png")} alt="SA" />
         <span>
-          <span>&nbsp;S</span>TUDY<span>A</span>RENA
+          <span>&nbsp;N</span>ail <span>T</span>he <span>B</span>rain
         </span>
       </div>
       <div className="leftlink center">
@@ -18,7 +18,7 @@ const Nav = () => {
           style={({ isActive }) => {
             return { color: isActive ? "black" : "" };
           }}
-          to={"/field"}
+          to={"/academics/books"}
         >
           Books
         </NavLink>
