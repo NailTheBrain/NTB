@@ -1,7 +1,6 @@
 import React from 'react'
 
 export default function Bk(props) {
-  let i = "bk-4.jpg"
   return (
     <>
       <div className="book">

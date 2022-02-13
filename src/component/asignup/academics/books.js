@@ -94,8 +94,8 @@ export default function Books(props) {
         </div>
         {props.type.map((value, index) => {
           if (
-            value.name.toUpperCase().search(search) != -1 ||
-            search.length == 0
+            value.name.toUpperCase().search(search) !== -1 ||
+            search.length === 0
           ) {
             return (
               <div
