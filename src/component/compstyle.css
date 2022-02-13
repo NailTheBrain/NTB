@@ -112,7 +112,8 @@
 /* hr */
 hr{
     width: 90%;
-    margin: auto;
+    height: 3px !important;
+    margin: 1.5rem auto;
 }
 /* books */
 .book{

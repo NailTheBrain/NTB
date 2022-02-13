@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import Bk from './bk';
 import Heading from "../../heading";
-import { bkData } from './bkdata';
-import Description from "../../../Description"
+// import { bkData } from './bkdata';
+// import Description from "../../../Description"
 
 
-export default function Books() {
+export default function Books(props) {
   // for seaching 
   const [search,setSearch]=useState("");
   function Search(e){
@@ -24,8 +24,8 @@ export default function Books() {
   const [text, setText] = useState("");
   const [link, setLink] = useState("");
   function description(e){
-    setName(bkData[e].name);
-    setText(bkData[e].text);
+    setName(props.type[e].name);
+    setText(props.type[e].text);
     // setLink(bkData[e].link)
   }
 
@@ -34,55 +34,38 @@ export default function Books() {
     <>
       <div className="books-top center">
         <div className="books-left">
-          <div className="bk1">
-            <Bk
-              name="book name"
-              text="The beginning is the most precious part of
-            the work."
-              img="bk-2.jpeg"
-              key="{index}"
-            />
-          </div>
-          <div className="bk2">
-            <a href="https://www.youtube.com/watch?v=P-DhwN87JDY">
-              <Bk
-                name="book name"
-                text="The beginning is the most precious part of
-            the work."
-                img="bk-1.jpeg"
-                key="{ind3ex}"
-              />
-            </a>
-          </div>
-          <div className="bk3">
-            <Bk
-              name="book name"
-              text="The beginning is the most precious part of
-            the work."
-              img="bk-3.jpeg"
-              key="{12}"
-            />
-          </div>
+          {props.type.map((value, index) => {
+            let i =  `bk${index+1}`
+           if(index < 3)  return (
+                <div
+                  id="book"
+                  className={i}
+                  onClick={() => description(index)}
+                  data-bs-toggle="offcanvas"
+                  data-bs-target="#offcanvasWithBothOptions"
+                  aria-controls="offcanvasWithBothOptions"
+                  key={index}
+                >
+                  <Bk name={value.name} text={value.text} img={value.img} />
+                </div>
+              );
+          })}
         </div>
         <div className="books-right center">
-          <p style={{ fontSize: "2rem" }}>
-            The beginning is the most precious part of the work. No one can
-            afford to stand by and do nothing, so grab limitless opportunities
-            from here. Find the books related to subjects of CSE and IT. Check
-            them out!!!
-          </p>
+          <h2>{props.name}</h2>
+          <p style={{ fontSize: "2rem" }}>{props.text}</p>
           <a href="#booksBottom" className="button">
             EXPLORE
           </a>
         </div>
       </div>
-
+      <hr />
       <div className="books-bottom " id="booksBottom">
         <div className="booksNav center" id="booksNav">
           <div className="booksNav-left">
-            <Heading text="Books" size="8" />
+            <Heading text={props.name} size="8" />
           </div>
-          <div className="input-group ">
+          <div className="input-group" id="searchOpen">
             <input
               type="text"
               className="form-control"
@@ -96,6 +79,11 @@ export default function Books() {
               className="btn btn-outline-secondary"
               type="button"
               id="button-addon2"
+              onClick={() => {
+                document
+                  .getElementById("searchOpen")
+                  .classList.toggle("searchOpen");
+              }}
             >
               <i
                 className="fa-solid fa-magnifying-glass"
@@ -104,7 +92,7 @@ export default function Books() {
             </button>
           </div>
         </div>
-        {bkData.map((value, index) => {
+        {props.type.map((value, index) => {
           if (
             value.name.toUpperCase().search(search) != -1 ||
             search.length == 0
@@ -127,7 +115,7 @@ export default function Books() {
       <div
         className="offcanvas offcanvas-start "
         data-bs-scroll="true"
-        tabindex="-1"
+        tabIndex="-1"
         id="offcanvasWithBothOptions"
         aria-labelledby="offcanvasWithBothOptionsLabel"
       >

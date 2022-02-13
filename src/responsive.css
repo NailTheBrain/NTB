@@ -37,9 +37,6 @@
   .hover-scale {
     transform: scale(1);
   }
-  .nav .leftlink a {
-    font-size: 2rem;
-  }
   .home{
       flex-direction: column;
   }
@@ -99,5 +96,43 @@
   }
   .booksNav{
     height: 60px;
+  }
+  .booksNav .input-group{
+    width: 30vw;
+  }
+
+}
+@media (max-width: 900px) {
+  nav .fa-ellipsis-vertical{
+      font-size: 4rem;
+      cursor: pointer;
+      transform: rotate(0deg);
+      transform: scale(1);
+      transition: var(--trans3);
+  }
+   nav .open{
+     transform: rotate(90deg);
+   }
+  nav .leftlink{
+    position: absolute;
+    flex-direction: column;
+    right: 10%;
+    top: 70px;
+    z-index: 99;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 2rem;
+    box-shadow: 0 0 10px grey,
+                inset 0px 0px 5px black;
+    padding: 2rem;
+    transform: scale(0);
+    transition: var(--trans1);
+  }
+  .openNav{
+    transform: scale(1) !important;
+  }
+  nav .leftlink a{
+    font-size: 3rem;
+    padding: 1rem;
+    overflow: hidden;
   }
 }

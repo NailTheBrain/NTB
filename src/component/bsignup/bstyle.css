@@ -9,7 +9,7 @@
 .Main{
     background: url("../images/back.jpeg");
 }
-.nav{
+nav{
     width: calc(100%-20rem);
     height: 70px;
     background-color: transparent;
@@ -17,31 +17,32 @@
     margin: 0 !important;
     margin-top: 3rem;
     justify-content: space-between !important;
-    overflow: hidden;
+    overflow: initial;
+    position: relative;
 }
-.nav .rightlink{
+nav .rightlink{
     font-size: 3rem;
     font-weight: 600;
     cursor: pointer;
     transition: var(--trans1);
 }
-.nav .rightlink img{
+nav .rightlink img{
     height: 6rem;
 }
-.nav .rightlink:hover{
+nav .rightlink:hover{
     transform: scale(1.05);
 }
-.nav .rightlink span span{
+nav .rightlink span span{
     font-family: 'Lobster Two', cursive;
     font-size: 3.8rem;
     font-weight: 900;
 }
 
-.nav .leftlink{
+nav .leftlink{
 
     overflow: hidden;
 }
-.nav .leftlink a{
+nav .leftlink a{
     margin: 0 2rem;
     font-size: 2rem;
     color: var(--Vclr);
@@ -49,30 +50,34 @@
     transition: var(--trans1);
     text-decoration: none;
 }
-.nav .leftlink a:hover{
+nav .leftlink a:hover{
     transform: scale(1.05);
     color: var(--IIIclr);
 }
-.nav .leftlink a img{
+nav .leftlink a img{
     height: 2.5rem;
     border-radius: 50%;
     padding-right: .2rem;
 }
-.nav .leftlink a i{
+nav .leftlink a i{
     height: 2.5rem;
     padding-left: .4rem;
     color: red;
 }
+nav .fa-ellipsis-vertical{
+   transform: scale(0);
+}
 /* home */
 .home{
     padding: 0 10rem;
-    height: 85vh;
+    min-height: 85vh;
     justify-content: space-around !important;
     overflow: hidden;
 }
 .home .left{
     width: 65%;
     padding:0 5rem;
+    height: 100%;
 }
 .left h1{
     color: var(--Vclr);
@@ -85,6 +90,7 @@
 }
 .left1{
     width: 50%;
+    height: 100%;
     padding:0 5rem;
 }
 .left1 p{
