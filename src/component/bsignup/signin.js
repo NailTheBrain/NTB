@@ -3,8 +3,8 @@ import { passCheck, showCall } from "./passCheck";
 import { useState} from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import "./bstyle.css";
- import { ToastContainer, toast } from "react-toastify";
- import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 
  

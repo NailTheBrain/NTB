@@ -131,6 +131,7 @@ hr{
     overflow: hidden;
     font-size: 100%;
     box-shadow: 0px 2px 5px black;
+    z-index: 9;
 }
 .book::after{
     content: "Read Book!";
@@ -165,7 +166,7 @@ hr{
     flex-direction: column;
     border-top: 1px solid white;
     border-bottom: 1px solid white;
-
+    z-index: 0;
     background-color: rgba(0, 0, 0, 0.6);
     transition: var(--trans3);
 }

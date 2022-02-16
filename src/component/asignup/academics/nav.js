@@ -56,7 +56,7 @@ const Nav = () => {
           style={({ isActive }) => {
             return { color: isActive ? "black" : "" };
           }}
-          to={"/fields"}
+          to={"/academics/contact"}
         >
           Contact
         </NavLink>

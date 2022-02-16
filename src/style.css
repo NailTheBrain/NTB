@@ -2,13 +2,14 @@
 *{
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
     font-family: 'Source Sans Pro', sans-serif;;
     scroll-behavior: smooth;
 }
 html{
     font-size: 62.5%;
     background: url("./component/images/back.jpeg");
+    position: relative;
+    overflow-x: auto;
 }
 :root{
     --Iclr : rgb(123, 117, 117);
@@ -23,4 +24,101 @@ html{
 }
 h1,h2,h3,h4,h5,p,span,a{
     overflow: hidden;
+}
+/* for top linking box */
+.toTop{
+    background-color: #fff;
+    width: 45px;
+    height: 35px;
+    position: fixed;
+    bottom: 70px;
+    right: 40px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px grey,inset 0 0 2px black;
+    cursor: pointer;
+    text-decoration: none;
+    transform: translateX(100px);
+    transition: var(--trans1);
+    z-index: 99;
+}
+.toTop i{
+    font-size: 20px;
+    color: var(--VIclr);
+}
+.toTop:hover{
+    transform: scale(1.2) !important;
+}
+/* for footer */
+.footer{
+    width: 100%;
+    min-height: 40vh;
+    position: relative;
+    background:linear-gradient(transparent,rgba(0, 0, 0, 0.2) ,rgba(0, 0, 0, 0.4)),url("./component/images/back.jpeg");
+    justify-content: space-around;
+    /* border-top: 2px solid var(--IVclr); */
+    margin-top: 2rem;
+    padding-top: 1rem;
+}
+.Fleft{
+    width: 40%;
+    height: 70%;
+    margin-bottom:7% ;
+}
+.Fleft .content{
+    padding-left: 2rem;
+    padding-top: 2rem;
+}
+.Fleft .content h3{
+    font-size: 3.5rem;
+    font-weight: 600;
+    color: var(--VIclr);
+}
+.Fleft .content p{
+    font-size: 1.8rem;
+    color: rgb(39, 38, 38);
+}
+.Fright{
+    width: 39%;
+    height: 70%;
+    margin-bottom:7%;
+    flex-direction: column;
+}
+.Fright li{
+    font-size: 2rem;
+    padding: .5rem;
+    display: flex;
+    align-items: center;
+    color: rgb(39, 38, 38);
+}
+.Fright li i{
+    padding-right: 1rem;
+    color: #000;
+}
+
+.Fright li:first-child{
+    font-size: 3rem;
+    font-weight: 600;
+    color: var(--VIclr);
+    transform: translateX(-10px);
+}
+.footerBtm{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background-color: var(--VIclr);
+    justify-content: space-around;
+}
+.footerBtm p{
+    color: #fff;
+    font-size: 1.6rem;
+}
+.footerBtm a{
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--IVclr);
+    text-decoration: none;
+}
+.footerBtm a:hover{
+    color: #fff;
 }

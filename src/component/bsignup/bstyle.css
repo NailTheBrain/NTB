@@ -70,7 +70,8 @@ nav .fa-ellipsis-vertical{
 /* home */
 .home{
     padding: 0 10rem;
-    min-height: 85vh;
+    max-height: 85vh;
+    padding: 8rem 5rem;
     justify-content: space-around !important;
     overflow: hidden;
 }
@@ -107,7 +108,6 @@ nav .fa-ellipsis-vertical{
 .home .content{
     width: 80%;
     margin: auto;
-    /* border: 1px solid red; */
     justify-content: space-around !important;
 }
 .home .content .card{
@@ -149,9 +149,6 @@ nav .fa-ellipsis-vertical{
     margin: 1rem;
     margin-top: 2rem;
     border-radius: 1rem ;
-    /* background-color: rgba(0, 0, 0, 0.1); */
-    /* box-shadow: 0px 0px 5px var(--Vclr), */
-     /* inset 0px 0px 5px var(--Vclr); */
     position: relative;
     overflow: initial;
     
@@ -213,7 +210,6 @@ nav .fa-ellipsis-vertical{
 }
 .pass{
     position: relative;
-    /* border: 1px solid black; */
 }
 .pass i{
     color: var(--VIclr);

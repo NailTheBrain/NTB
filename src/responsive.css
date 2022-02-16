@@ -100,7 +100,18 @@
   .booksNav .input-group{
     width: 30vw;
   }
-
+  /* footer */
+  .footer{
+    flex-direction: column;
+    /* min-height:60vh ; */
+    
+  }
+  .Fright{
+    margin-bottom: 80px;
+  }
+  .Fright,.Fleft{
+    width: 100%;
+  }
 }
 @media (max-width: 900px) {
   nav .fa-ellipsis-vertical{
