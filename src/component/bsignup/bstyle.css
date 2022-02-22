@@ -1,222 +1,223 @@
-@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,700;1,400&display=swap');
-.main{
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    background: url("../images/back.jpeg") center;
+@import url("https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,700;1,400&display=swap");
+.main {
+  width: 100%;
+  height: 100vh;
+  background: url("../images/back.jpeg") center;
 }
 /* navbar */
-.Main{
-    background: url("../images/back.jpeg");
+.Main {
+  background: url("../images/back.jpeg");
 }
-nav{
-    width: 100%;
-    height: 70px;
-    background-color: transparent;
-    padding: 0 10rem;
-    margin: 0 !important;
-    margin-top: 3rem !important;
-    justify-content: space-between !important;
-    overflow: initial;
-    position: relative;
+nav {
+  width: 100%;
+  height: 70px;
+  background-color: transparent;
+  padding: 0 10rem;
+  margin: 0 !important;
+  margin-top: 3rem !important;
+  justify-content: space-between !important;
+  overflow: initial;
+  position: relative;
 }
-nav .rightlink{
-    font-size: 3rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: var(--trans1);
+nav .rightlink {
+  font-size: 3rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--trans1);
 }
-nav .rightlink img{
-    height: 6rem;
+nav .rightlink img {
+  height: 6rem;
 }
-nav .rightlink:hover{
-    transform: scale(1.05);
+nav .rightlink:hover {
+  transform: scale(1.05);
 }
-nav .rightlink span span{
-    font-family: 'Lobster Two', cursive;
-    font-size: 3.8rem;
-    font-weight: 900;
+nav .rightlink span span {
+  font-family: "Lobster Two", cursive;
+  font-size: 3.8rem;
+  font-weight: 900;
 }
 
-nav .leftlink{
-
-    overflow: hidden;
+nav .leftlink {
+  overflow: hidden;
 }
-nav .leftlink a{
-    margin: 0 2rem;
-    font-size: 2rem;
-    color: var(--Vclr);
-    cursor: pointer;
-    transition: var(--trans1);
-    text-decoration: none;
+nav .leftlink a {
+  margin: 0 2rem;
+  font-size: 2rem;
+  color: var(--Vclr);
+  cursor: pointer;
+  transition: var(--trans1);
+  text-decoration: none;
 }
-nav .leftlink a:hover{
-    transform: scale(1.05);
-    color: var(--IIIclr);
+nav .leftlink a:hover {
+  transform: scale(1.05);
+  color: var(--IIIclr);
 }
-nav .leftlink a img{
-    height: 2.5rem;
-    border-radius: 50%;
-    padding-right: .2rem;
+nav .leftlink a img {
+  height: 2.5rem;
+  border-radius: 50%;
+  padding-right: 0.2rem;
 }
-nav .leftlink a i{
-    height: 2.5rem;
-    padding-left: .4rem;
-    color: red;
+nav .leftlink a i {
+  height: 2.5rem;
+  padding-left: 0.4rem;
+  color: red;
 }
-nav .fa-ellipsis-vertical{
-   transform: scale(0);
+nav .fa-ellipsis-vertical {
+  transform: scale(0);
 }
 /* home */
-.home{
-    padding: 0 10rem;
-    max-height: 85vh;
-    padding: 8rem 5rem;
-    justify-content: space-around !important;
-    overflow: hidden;
+.home {
+  padding: 0 10rem;
+  max-height: 85vh;
+  padding: 8rem 5rem;
+  justify-content: space-around !important;
+  overflow: hidden;
+  margin: auto;
 }
-.home .left{
-    width: 65%;
-    padding:0 5rem;
-    height: 100%;
+.home .left {
+  width: 65%;
+  padding: 0 5rem;
+  height: 100%;
 }
-.left h1{
-    color: var(--Vclr);
-    margin-bottom:100px;
+.left h1 {
+  color: var(--Vclr);
+  margin-bottom: 100px;
 }
-.left h2{
-    color: var(--Vclr);
-    font-size: 4rem;
-    margin-bottom:80px;
+.left h2 {
+  color: var(--Vclr);
+  font-size: 4rem;
+  margin-bottom: 80px;
 }
-.left1{
-    width: 50%;
-    height: 100%;
-    padding:0 5rem;
+.left1 {
+  width: 50%;
+  height: 100%;
+  padding: 0 5rem;
 }
-.left1 p{
-    text-align: justify;
+.left1 p {
+  text-align: justify;
 }
-.left .heading{
-    text-align: left;
-    margin: 4rem 0;
+.left .heading {
+  text-align: left;
+  margin: 4rem 0;
 }
-.home img{
-    width: 35%;
+.home img {
+  width: 35%;
 }
 
-.home .content{
-    width: 80%;
-    margin: auto;
-    justify-content: space-around !important;
+.home .content {
+  width: 80%;
+  margin: auto;
+  justify-content: space-around !important;
 }
-.home .content .card{
-    width: 40%;
+.home .content .card {
+  width: 40%;
 }
-.home .content p{
-    text-align: justify;
+.home .content p {
+  text-align: justify;
 }
 /* form */
-.form{
-    padding: 0 10rem;
-    height: 85%;
-    width: 100%;
-    flex-direction: column;
-    position: relative;
+.form {
+  padding: 0 10rem;
+  height: 85%;
+  width: 100%;
+  flex-direction: column;
+  position: relative;
 }
-.form .links a{
-    margin-right: 3rem;
-    text-decoration: none;
-    color: var(--Iclr);
-    transform: scale(0.90);
-    transition: var(--trans1);
+.form .links a {
+  margin-right: 3rem;
+  text-decoration: none;
+  color: var(--Iclr);
+  transform: scale(0.9);
+  transition: var(--trans1);
 }
-.form .links a:hover{
-    transform: scale(1);
-    color: var(--IIIclr);
+.form .links a:hover {
+  transform: scale(1);
+  color: var(--IIIclr);
 }
-.row{
-    overflow: initial;
+.row {
+  overflow: initial;
 }
-.row h2:nth-child(1){
-    font-size: 3rem;
-    font-weight: 600;
+.row h2:nth-child(1) {
+  font-size: 3rem;
+  font-weight: 600;
 }
-.form form{
-    width: 70%;
-    padding: 2.4rem;
-    font-size: 2rem;
-    margin: 1rem;
-    margin-top: 2rem;
-    border-radius: 1rem ;
-    position: relative;
-    overflow: initial;
-    
+.form form {
+  width: 70%;
+  padding: 2.4rem;
+  font-size: 2rem;
+  margin: 1rem;
+  margin-top: 2rem;
+  border-radius: 1rem;
+  position: relative;
+  overflow: initial;
 }
-.form form input{
-    padding:  1rem;
-    font-size: 2rem;
-    background-color: transparent;
-    outline: none;
-    border: none;
-    border-bottom: 1px solid var(--VIclr);
-    transition: var(--trans1);
+.form form input {
+  padding: 1rem;
+  font-size: 2rem;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid var(--VIclr);
+  transition: var(--trans1);
 }
 .form form input:focus,
-.form form input:hover{
-    outline: none;
-    background-color: transparent;
-    box-shadow: none;
-    border: none;
-    border-bottom: 3px solid var(--VIclr);
+.form form input:hover {
+  outline: none;
+  background-color: transparent;
+  box-shadow: none;
+  border: none;
+  border-bottom: 3px solid var(--VIclr);
 }
 
-.form form p{
-    font-size: 1.5rem;
-    margin-top: 1rem;
-    cursor: pointer;
-    letter-spacing: 2px;
+.form form p {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  cursor: pointer;
+  letter-spacing: 2px;
 }
-.form form p span{
-    color: blue;
+.form form p span {
+  color: blue;
 }
-#passmsg{
-    position: absolute;
-    top: 45%;
-    right: 0%;
-    transform: translateX(130%);
-    width:auto;
-    background-color: rgba(0, 0, 0, 0.1);
-    padding: 1rem;
-    border-radius: 1rem;
-    display: none;
-    color: red;
-    overflow: initial;
+#passmsg {
+  position: absolute;
+  top: 45%;
+  right: 0%;
+  transform: translateX(130%);
+  width: auto;
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  border-radius: 1rem;
+  display: none;
+  color: red;
+  overflow: initial;
 }
-#passmsg::before{
-    content: "";
-    width: 20px;
-    height: 30px;
-    background-color: rgba(0, 0, 0, 0.1);
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: -20px;
-    margin: auto;
-    clip-path: polygon(100% 0%, 100% 48%, 100% 100%, 49% 100%, 0% 50%, 57% 0);
+#passmsg::before {
+  content: "";
+  width: 20px;
+  height: 30px;
+  background-color: rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -20px;
+  margin: auto;
+  clip-path: polygon(100% 0%, 100% 48%, 100% 100%, 49% 100%, 0% 50%, 57% 0);
 }
-#passmach{
-    display: none;
+#passmach {
+  display: none;
 }
-.pass{
-    position: relative;
+.pass {
+  position: relative;
 }
-.pass i{
-    color: var(--VIclr);
-    font-weight: 600;
-    cursor: pointer;
-    position: absolute;
-    bottom: 1.5rem;
-    right: 10px;
-    margin: auto;
+.pass i {
+  color: var(--VIclr);
+  font-weight: 600;
+  cursor: pointer;
+  position: absolute;
+  bottom: 1.5rem;
+  right: 10px;
+  margin: auto;
+  z-index: 2;
 }
+
+

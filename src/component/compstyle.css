@@ -195,3 +195,35 @@ hr{
     background-color: rgba(0, 0, 0, 0.6);
     transform: scale(.95);
 }
+/* no scroll */
+.no-scroll{
+    overflow-x: hidden;
+}
+
+/* for input animation */
+.input1 {
+  position: relative;
+  margin-top: 2.5rem;
+}
+.input{
+    position: relative;
+    z-index: 1 !important;
+    /* background-color: transparent !important; */
+}
+.inputDes span {
+  display: inline-block;
+  transition: 0.3s all cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  color: var(--Iclr);
+}
+.inputDes {
+    font-size: 2rem;
+    position: absolute;
+    bottom: 0;
+    left: 1rem;
+    z-index:  0 !important;
+}
+.input:focus + .inputDes span,
+.input:not([value=""]) + .inputDes span {
+  transform: translateY(-30px) translateX(10px);
+  color: var(--VIclr);
+}

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 export default function Footer() {
 
@@ -10,11 +10,11 @@ export default function Footer() {
 
   return (
     <>
-    <hr />
-      <a href="#" className="toTop center" id="toTop">
+      <hr />
+      <div href="#" className="toTop center" id="toTop" onClick={()=>window.scroll(0,0)}>
         <i className="fa-solid fa-angles-up"></i>
-      </a>
-      <div className="footer center">
+      </div>
+      <div className="footer center ">
         <div className="Fleft center">
           {/* <img src={require("../src/component/images/logo.png")} alt="" /> */}
           <div className="content">

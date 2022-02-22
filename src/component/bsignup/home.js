@@ -5,7 +5,7 @@ import "./bstyle.css";
 const Home = () => {
   return (
     <>
-      <div className="home center">
+      <div className="home center ">
         <div className="left">
           <h1>
             Data privacy is important to HackerRank, and when it comes to your

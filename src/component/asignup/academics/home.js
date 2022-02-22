@@ -1,6 +1,6 @@
 import React from "react";
 import Heading from "../../heading";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 // import Books from "./books"
 // import Contact from "./contact";
 // import Exam from "./exam";
@@ -9,8 +9,8 @@ import { useNavigate, useLocation } from "react-router-dom";
 const Home = () => {
   const navigate = useNavigate();
   return (
-    <>
-      <div className="home center">
+    <div className="no-scroll">
+      <div className="home center hover-scale">
         <div className="left">
           <h2>
             <strong>Academics</strong>
@@ -41,7 +41,10 @@ const Home = () => {
             </p>
             <button
               className="button"
-              onClick={() => {navigate("/academics/books");window.scrollTo(0,0)}}
+              onClick={() => {
+                navigate("/academics/books");
+                window.scrollTo(0, 0);
+              }}
             >
               EXPLORE
             </button>
@@ -53,7 +56,7 @@ const Home = () => {
       <div className="hover-scale">
         <Heading text="Exam" size="12" />
         <div className="home center">
-          <div className="left1">
+          <div className="left1" data-aos="flip-down" data-aos-delay="200">
             <p style={{ fontSize: "2rem" }}>
               Building a future generation of innovation means setting up the
               youth for success. <br />
@@ -64,15 +67,23 @@ const Home = () => {
             </p>
             <button
               className="button"
-              onClick={() => {navigate("/academics/exams");window.scrollTo(0,0)}}
+              onClick={() => {
+                navigate("/academics/exams");
+                window.scrollTo(0, 0);
+              }}
             >
               EXPLORE
             </button>
           </div>
-          <img src={require("../../images/img-4.png")} alt="" />
+          <img
+          className=""
+            src={require("../../images/img-4.png")}
+            alt=""
+            data-aos="slide-left"
+          />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

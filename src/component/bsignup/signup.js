@@ -1,12 +1,13 @@
 import React from 'react';
 import "./bstyle.css";
 import { passCheck, showCall } from "./passCheck";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLocation,useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function Signup() {
+
   let navigate = useNavigate();
   const data = useLocation().state.type;
   let show;
@@ -16,13 +17,29 @@ export default function Signup() {
     ? (showmail = "Please enter student mail id")
     : (showmail = "We'll never share your email with anyone.");
 
+  //  for animation of words
+    useEffect(() => {
+       let input = document.querySelectorAll(".inputDes");
+       input.forEach((e) => {
+         e.innerHTML = e.innerText
+           .split("")
+           .map(
+             (des, indx) =>
+               `<span style="transition-delay:${indx * 40}ms" >${des}</span>`
+           )
+           .join("");
+       });
+    }, [])
+    
 
 
+    const [fname, setFName] = useState("");
+    const [lname, setLName] = useState("");
+    const [mail, setMail] = useState("");
+    const [pass, setPass] = useState("");
+    const [conPass, setconPass] = useState("");
   const [password, setPassword] = useState(false);
   const [confirmPassword, setconfirmPassword] = useState(false);
-  const [fname, setFName] = useState("");
-  const [lname, setLName] = useState("");
-  const [mail, setMail] = useState("");
 
   function chkfname(e){
      e = e.toUpperCase()
@@ -44,6 +61,7 @@ export default function Signup() {
       ? (document.querySelector("#passmsg").style.display = "none")
       : (document.querySelector("#passmsg").style.display = "block");
     setPassword(chk);
+    setPass(e)
   }
   function conpasscheckcall(e) {
     let x = document.getElementById("password").value;
@@ -53,6 +71,7 @@ export default function Signup() {
       : (document.querySelector("#passmsg").style.display = "block");
     x === e ? (y.style.display = "none") : (y.style.display = "block");
     setconfirmPassword(x === e);
+    setconPass(e);
   }
 
 
@@ -89,59 +108,71 @@ export default function Signup() {
         <form>
           <div className="mb-3 ">
             <div className="center" style={{ justifyContent: "space-between" }}>
-              <input
-                type="text"
-                className="form-control"
-                value={fname}
-                onChange={(e) => chkfname(e.target.value)}
-                maxLength="10"
-                style={{ width: "45%" }}
-                placeholder="First"
-              />
-              <input
-                type="text"
-                className="form-control"
-                value={lname}
-                onChange={(e) => chklname(e.target.value)}
-                maxLength="10"
-                style={{ width: "45%" }}
-                placeholder="Last"
-              />
+              <div className="input1">
+                <input
+                  type="text"
+                  className="form-control input"
+                  value={fname}
+                  onChange={(e) => chkfname(e.target.value)}
+                  maxLength="10"
+                  style={{ width: "95%" }}
+                  required
+                />
+                <div className="inputDes">First Name</div>
+              </div>
+              <div className="input1">
+                <input
+                  type="text"
+                  className="form-control input"
+                  value={lname}
+                  onChange={(e) => chklname(e.target.value)}
+                  maxLength="10"
+                  style={{ width: "95%" }}
+                  required
+                />
+                <div className="inputDes">Last Name</div>
+              </div>
             </div>
           </div>
-          <div className="mb-3">
+          <div className="mb-3 input1">
             <input
               type="email"
-              className="form-control"
+              className="form-control input"
               onChange={(e) => setMail(e.target.value)}
               aria-describedby="emailHelp"
-              placeholder="Email id"
+              value={mail}
+              required
             />
+            <div className="inputDes">Email-id</div>
+          </div>
             <div id="emailHelp" className="form-text">
               {showmail}
             </div>
-          </div>
-          <div className="mb-3 pass">
+          <div className="mb-3 pass input1">
             <input
               type="password"
-              className="form-control"
+              className="form-control input"
               id="password"
               onChange={(e) => passcheckcall(e.target.value)}
-              placeholder="Password"
+              value={pass}
+              required
             />
+            <div className="inputDes">Password</div>
             <i
               className="far fa-eye"
               id="showpass"
               onClick={(e) => showCall(e.target)}
             ></i>
           </div>
-          <div className="mb-3 pass">
+          <div className="mb-3 pass input1">
             <input
               type="password"
-              className="form-control"
+              className="form-control input"
               onChange={(e) => conpasscheckcall(e.target.value)}
-              placeholder="Re-enter Password"
+              value={conPass}
+              required
             />
+            <div className="inputDes">Re-Enter Password</div>
             <i
               className="far fa-eye"
               id="showpass"
@@ -173,11 +204,7 @@ export default function Signup() {
               <strong>matched</strong>
             </h4>
           </div>
-          <button
-            type="button"
-            className="button"
-            onClick={() => sub()}
-          >
+          <button type="button" className="button" onClick={() => sub()}>
             Submit
           </button>
           <p onClick={() => navigate("/field")}>
