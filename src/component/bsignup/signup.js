@@ -9,14 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 export default function Signup() {
 
   let navigate = useNavigate();
-  const data = useLocation().state.type;
-  let show;
-  let showmail;
-  data === "aup" ? (show = "Academics") : (show = "Development");
-  data === "aup"
-    ? (showmail = "Please enter student mail id")
-    : (showmail = "We'll never share your email with anyone.");
-
+  let data= useLocation().state;
   //  for animation of words
     useEffect(() => {
        let input = document.querySelectorAll(".inputDes");
@@ -29,7 +22,18 @@ export default function Signup() {
            )
            .join("");
        });
-    }, [])
+      if (data === null) navigate("/fields");
+      else data = data.type;
+       
+       
+      },)
+  let show;
+  let showmail;
+  data === "aup" ? (show = "Academics") : (show = "Development");
+  data === "aup"
+    ? (showmail = "Please enter student mail id")
+    : (showmail = "We'll never share your email with anyone.");
+
     
 
 

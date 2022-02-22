@@ -224,6 +224,6 @@ hr{
 }
 .input:focus + .inputDes span,
 .input:not([value=""]) + .inputDes span {
-  transform: translateY(-30px) translateX(10px);
+  transform: translateY(-3rem) translateX(1rem);
   color: var(--VIclr);
 }

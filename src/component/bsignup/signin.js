@@ -12,7 +12,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 export default function Signin() {
   const navigate = useNavigate();
-  const data = useLocation().state.type;
+   let data = useLocation().state;
   let show;
   let showmail;
   data === "ain" ? (show = "Academics") : (show = "Development");
@@ -32,6 +32,8 @@ export default function Signin() {
         )
         .join("");
     });
+    if (data === null) navigate("/field");
+    else data = data.type;
   }, []);
 
   const [password, setPassword] = useState(false);

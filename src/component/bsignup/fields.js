@@ -14,7 +14,7 @@ const Field = (props) => {
           <div className="row content center">
             <Card
               title="Academics"
-              text="Making continuous efforts to help and build up your future, Study Arena provides you with CSE and IT subjects related content, books and resources"
+              text="Making continuous efforts to help and build up your future, Nail the Brain provides you with CSE and IT subjects related content, books and resources"
               btnText="Sign UP"
               btnlink="/form/signup"
               lastmsg="Already have an account?"
