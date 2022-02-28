@@ -39,10 +39,11 @@ export function showCall(e){
     if(e.classList.contains("fa-eye")){
         e.classList.remove("fa-eye")
         e.classList.add("fa-eye-slash")
-        e.previousElementSibling.type="text"
+       e.parentElement.firstElementChild.type = "text";
     }else{
-        e.classList.add("fa-eye")
-        e.classList.remove("fa-eye-slash")
-        e.previousElementSibling.type="password"
+      e.classList.add("fa-eye");
+      e.classList.remove("fa-eye-slash");
+      // console.log(e.parentElement.firstElementChild);
+      e.parentElement.firstElementChild.type="password"
     }
 }

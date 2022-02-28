@@ -5,7 +5,7 @@ import Heading from "../heading";
 
 const Field = (props) => {
   return (
-    <div className="home center">
+    <div className="home center" data-aos="zoom-out">
       <div className="left" style={{ width: "100%" }}>
         <div className="heading">
           <Heading text="Sign in" size="12" />

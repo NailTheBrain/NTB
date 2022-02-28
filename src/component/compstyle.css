@@ -1,203 +1,246 @@
 /* cards */
-.card{
-    border: none;
-    background-color: transparent;
+.card {
+  border: none;
+  background-color: transparent;
 }
-.card h2{
-    font-size: 3rem;
-    font-weight: 600;
-    margin-bottom: 0 !important;
+.card h2 {
+  font-size: 3rem;
+  font-weight: 600;
+  margin-bottom: 0 !important;
 }
-.card p{
-    font-size: 1.5rem;
-    color: var(--Vclr);
-    padding-top: 1rem;
+.card p {
+  font-size: 1.5rem;
+  color: var(--Vclr);
+  padding-top: 1rem;
 }
-.card .card-body{
-    padding: 0;
-    padding-right: 2rem;
+.card .card-body {
+  padding: 0;
+  padding-right: 2rem;
 }
-.card button{
-    background-color: var(--VIclr);
-    font-size: 2rem;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-shadow: 0px 0px 1px white;
-    padding: .6rem 2rem;
-    transform: scale(0.95);
-    border: none;
-    box-shadow:  1px 1px 10px var(--VIclr);
-    transition: var(--trans1);
+.card button {
+  background-color: var(--VIclr);
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-shadow: 0px 0px 1px white;
+  padding: 0.6rem 2rem;
+  transform: scale(0.95);
+  border: none;
+  box-shadow: 1px 1px 10px var(--VIclr);
+  transition: var(--trans1);
 }
-.card button:hover{
-    background-color: var(--VIclr);
-    transform: scale(1);
+.card button:hover {
+  background-color: var(--VIclr);
+  transform: scale(1);
 }
-.card p:last-child{
-    padding-top: 2rem;
+.card p:last-child {
+  padding-top: 2rem;
 }
-.card p:last-child span{
-    color: blue;
-    cursor: pointer;
+.card p:last-child span {
+  color: blue;
+  cursor: pointer;
 }
-/* a;ert box */
-.modal{
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+/* alert box */
+.AletContainer {
+  width: 50vw;
+  height: 50vh;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  border-radius: 44px;
+  background: #e0e0e0;
+  margin:  auto;
+  /* margin-bottom: 4rem; */
+  box-shadow: 27px 27px 64px #a6a6a6, -27px -27px 44px #ffffff;
+  flex-direction: column;
 }
-/* buttons */
-.button{
-    width: 100%;
-    margin-top: 2rem;
-    background-color: var(--VIclr);
-    font-size: 2rem;
-    font-weight: 600;
-    letter-spacing: 2px;
-    color: white;
-    text-shadow: 0px 0px 1px white;
-    border-radius: 1rem ;
-    padding: .6rem 2rem;
-    transform: scale(0.95);
-    border: none;
-    box-shadow:  1px 1px 10px var(--VIclr);
-    transition: var(--trans1);
+.AlertUpper{
+    width: 15rem;
+    height: 15rem;
+    border-radius: 50%;
+    margin-bottom: 2rem;
+background: linear-gradient(145deg, #cacaca, #f0f0f0);
+box-shadow:  28px 28px 65px #656565,
+             -28px -28px 65px #ffffff;
 }
-.button:hover{
-    background-color: var(--VIclr);
-    transform: scale(1);
-}
-.button:active{
-    transform: scale(.95);
-}
-/* hover scale */
-.hover-scale{
-    transform: scale(.95);
-    transition: var(--trans1);
-}
-.hover-scale:hover{
-    transform: scale(1);
-}
-/* none */
-.none{
-    display: none;
-}
-/* center */
-.center{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-/* heading */
-.heading{
-    position: relative;
-}
-.heading h5:first-child{
-    position: absolute;
-    top: 0;
-    z-index: 1;
-    color: rgba(128, 128, 128, 0.15);
+.AlertUpper i{
+    font-size: 5rem;
     font-weight: 900;
-    text-transform: uppercase;
 }
-.heading h5:last-child{
-    position: absolute;
-    bottom: 0;
-    font-weight: 900;
-    text-transform: uppercase;
-    z-index: 10;
+.AlertBottom h3{
+    padding: 2rem 0;
+    font-size: 2.5rem;
 }
-/* hr */
-hr{
-    width: 90%;
-    height: 3px !important;
-    margin: 1.5rem auto;
-}
-/* books */
-.book{
+.AlertBack{
     width: 100%;
     height: 100%;
-    position: relative;
-    background: linear-gradient(rgba(255, 255, 255, 0.2),rgba(255, 255, 255, 0.3)),url("../component/images/bk-back.jpeg");
-    background-repeat: no-repeat;
-    background-position: right;
-    background-size: cover;
-    border-radius: 0 2rem 2rem 0;
-    transform: scale(.90);
-    transition: var(--trans2);
-    cursor: pointer;
-    overflow: hidden;
-    font-size: 100%;
-    box-shadow: 0px 2px 5px black;
-    z-index: 9;
+    position: fixed;
+    top: 0;
+    z-index: 998;
+    background-color: rgba(0, 0, 0, 0.4);
+    
 }
-.book::after{
-    content: "Read Book!";
-    width: 100%;
-    height: 20%;
-    padding: 5%;
+.AlertClose{
     position: absolute;
-    bottom: -40%;
-    color: white;
-    font-size: 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-top: 1px solid white;
-    border-bottom: 1px solid white;
-    background-color: rgba(0, 0, 0, 0.6);
-    transition: var(--trans3);
+    bottom: 2rem;
+}
+/* buttons */
+.button {
+  width: 100%;
+  margin-top: 2rem;
+  background-color: var(--VIclr);
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: white;
+  text-shadow: 0px 0px 1px white;
+  border-radius: 1rem;
+  padding: 0.6rem 2rem;
+  transform: scale(0.95);
+  border: none;
+  box-shadow: 1px 1px 10px var(--VIclr);
+  transition: var(--trans1);
+}
+.button:hover {
+  background-color: var(--VIclr);
+  transform: scale(1);
+}
+.button:active {
+  transform: scale(0.95);
+}
+/* hover scale */
+.hover-scale {
+  transform: scale(0.95);
+  transition: var(--trans1);
+}
+.hover-scale:hover {
+  transform: scale(1);
+}
+/* none */
+.none {
+  display: none;
+}
+/* center */
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* heading */
+.heading {
+  position: relative;
+}
+.heading h5:first-child {
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  color: rgba(128, 128, 128, 0.15);
+  font-weight: 900;
+  text-transform: uppercase;
+}
+.heading h5:last-child {
+  position: absolute;
+  bottom: 0;
+  font-weight: 900;
+  text-transform: uppercase;
+  z-index: 10;
+}
+/* hr */
+hr {
+  width: 90%;
+  height: 3px !important;
+  margin: 1.5rem auto;
+}
+/* books */
+.book {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.2),
+      rgba(255, 255, 255, 0.3)
+    ),
+    url("../component/images/bk-back.jpeg");
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: cover;
+  border-radius: 0 2rem 2rem 0;
+  transform: scale(0.9);
+  transition: var(--trans2);
+  cursor: pointer;
+  overflow: hidden;
+  font-size: 100%;
+  box-shadow: 0px 2px 5px black;
+  z-index: 9;
+}
+.book::after {
+  content: "Read Book!";
+  width: 100%;
+  height: 20%;
+  padding: 5%;
+  position: absolute;
+  bottom: -40%;
+  color: white;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  background-color: rgba(0, 0, 0, 0.6);
+  transition: var(--trans3);
 }
 
-.book p{
-    width: 100%;
-    height: 70%;
-    padding: 5%;
-    position: absolute;
-    left: -110%;
-    bottom: 25%;
-    color: white;
-    font-size: 1.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    border-top: 1px solid white;
-    border-bottom: 1px solid white;
-    z-index: 0;
-    background-color: rgba(0, 0, 0, 0.6);
-    transition: var(--trans3);
+.book p {
+  width: 100%;
+  height: 70%;
+  padding: 5%;
+  position: absolute;
+  left: -110%;
+  bottom: 25%;
+  color: white;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  z-index: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  transition: var(--trans3);
 }
 
 .book img {
-    width: 100%;
-    height: 100%;
-    z-index: 100 !important;
-    transition: var(--trans2) !important;
-    border-radius: 0 2rem 2rem 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100 !important;
+  transition: var(--trans2) !important;
+  border-radius: 0 2rem 2rem 0;
 }
 
-.book:hover img{
-    width: 95%;
+.book:hover img {
+  width: 95%;
 }
-.book:hover::after{
-    bottom: 10px;
-    width: 95%;
+.book:hover::after {
+  bottom: 10px;
+  width: 95%;
 }
-.book:hover p{
-    left: 0px;
-     width: 95%;
+.book:hover p {
+  left: 0px;
+  width: 95%;
 }
-.book:hover{
-    box-shadow: -2px 1px 10px black;
-    background-color: rgba(0, 0, 0, 0.6);
-    transform: scale(.95);
+.book:hover {
+  box-shadow: -2px 1px 10px black;
+  background-color: rgba(0, 0, 0, 0.6);
+  transform: scale(0.95);
 }
 /* no scroll */
-.no-scroll{
-    overflow-x: hidden;
+.no-scroll {
+  overflow-x: hidden;
 }
 
 /* for input animation */
@@ -205,10 +248,10 @@ hr{
   position: relative;
   margin-top: 2.5rem;
 }
-.input{
-    position: relative;
-    z-index: 1 !important;
-    /* background-color: transparent !important; */
+.input {
+  position: relative;
+  z-index: 1 !important;
+  /* background-color: transparent !important; */
 }
 .inputDes span {
   display: inline-block;
@@ -216,11 +259,11 @@ hr{
   color: var(--Iclr);
 }
 .inputDes {
-    font-size: 2rem;
-    position: absolute;
-    bottom: 0;
-    left: 1rem;
-    z-index:  0 !important;
+  font-size: 2rem;
+  position: absolute;
+  bottom: 0;
+  left: 1rem;
+  z-index: 0 !important;
 }
 .input:focus + .inputDes span,
 .input:not([value=""]) + .inputDes span {

@@ -149,4 +149,7 @@
     padding: 1rem;
     overflow: hidden;
   }
+  /* alert box */
+  .AletContainer {
+  width: 80vw;height: 45vh;}
 }

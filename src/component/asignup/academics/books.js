@@ -49,7 +49,7 @@ export default function Books(props) {
 
 
   return (
-    <>
+    <div data-aos="zoom-out" >
       <div className="books-top center">
         <div className="books-left">
           {props.type.map((value, index) => {
@@ -166,6 +166,6 @@ export default function Books(props) {
           </a>
         </div>
       </div>
-    </>
+    </div>
   );
 }

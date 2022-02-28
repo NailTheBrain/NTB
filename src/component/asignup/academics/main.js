@@ -4,10 +4,10 @@ import "../../bsignup/bstyle.css";
 import Nav from "./nav"
 import Home from "./home"
 import Books from "./books"
-import  "./academic.css"
+import  "./academics.css"
 import { bkData } from "./bkdata";
 import { bkData1 } from "./bkdata1";
-import Contact from './contact';
+// import Contact from './contact';
 import Footer from '../../../footer';
 
 export default function Maina() {
@@ -44,7 +44,7 @@ export default function Maina() {
             />
           }
         />
-        <Route path="/contact" element={<Contact />} />
+        {/* <Route path="/contact" element={<Contact />} /> */}
       </Routes>
       <Footer/>
     </div>

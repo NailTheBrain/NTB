@@ -3,8 +3,7 @@ import { passCheck, showCall } from "./passCheck";
 import { useState,useEffect} from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import "./bstyle.css";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import Alert from "../alert";
 
 
  
@@ -12,7 +11,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 export default function Signin() {
   const navigate = useNavigate();
-   let data = useLocation().state;
+  let data = useLocation().state;
   let show;
   let showmail;
   data === "ain" ? (show = "Academics") : (show = "Development");
@@ -36,6 +35,12 @@ export default function Signin() {
     else data = data.type;
   }, []);
 
+  // Alert start
+  const [showAlert, setshowAlert] = useState(false);
+  const [textAlert, settextAlert] = useState("");
+  const [warnAlert, setwarnAlert] = useState();
+  // Alert end
+
   const [password, setPassword] = useState(false);
   const [mail, setMail] = useState("");
   const [pass, setPass] = useState("");
@@ -51,25 +56,28 @@ export default function Signin() {
 
   function sub() {
     if (data === "ain" && mail.split("@")[1] !== "miet.ac.in") {
-      toast.error("Please enter valid student mail id 😕", {
-        position: "top-center",
-      });
+      setshowAlert(true);
+      setwarnAlert(1);
+      settextAlert("Please enter valid student mail id 😕");
       setMail("");
+    } else if (!mail.match(/[^A-z0-9]/)) {
+      setshowAlert(true);
+      setwarnAlert(1);
+      settextAlert("Please enter valid mail id 😕");
     } else if (!password) {
-      toast.error("Please enter Password with right validation 😕", {
-        position: "top-center",
-      });
+     setshowAlert(true);
+     setwarnAlert(2);
+     settextAlert("Please enter Password with right validation 😕");
     } else {
-      toast.success(" Done 👌", {
-        position: "top-center",
-      });
-      navigate("/academics");
+      setshowAlert(true);
+      setwarnAlert(3);
+      settextAlert("Done 👌");
     }
   }
 
   return (
     <>
-      <div className="row center">
+      <div className="row center" data-aos="zoom-out">
         <center>
           <h2>{show}</h2>
           <h2> Sign IN</h2>
@@ -135,7 +143,12 @@ export default function Signin() {
           </p>
         </form>
       </div>
-      <ToastContainer />
+      <Alert
+        show={showAlert}
+        setShow={setshowAlert}
+        text={textAlert}
+        warn={warnAlert}
+      />
     </>
   );
 }

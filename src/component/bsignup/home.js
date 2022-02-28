@@ -5,7 +5,7 @@ import "./bstyle.css";
 const Home = () => {
   return (
     <>
-      <div className="home center ">
+      <div className="home center " style={{position:"relative",top:"10rem"}} data-aos="zoom-out">
         <div className="left">
           <h1>We develop leaders, who develop people, who develop business.</h1>
           <div className="container">

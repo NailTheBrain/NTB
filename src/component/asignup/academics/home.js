@@ -1,15 +1,12 @@
 import React from "react";
 import Heading from "../../heading";
 import { useNavigate } from "react-router-dom";
-// import Books from "./books"
-// import Contact from "./contact";
-// import Exam from "./exam";
 
 
 const Home = () => {
   const navigate = useNavigate();
   return (
-    <div className="no-scroll">
+    <div className="no-scroll" data-aos="zoom-out">
       <div className="home center hover-scale">
         <div className="left">
           <h2>
@@ -76,7 +73,7 @@ const Home = () => {
             </button>
           </div>
           <img
-          className=""
+            className=""
             src={require("../../images/img-4.png")}
             alt=""
             data-aos="slide-left"

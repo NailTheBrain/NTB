@@ -52,14 +52,14 @@ const Nav = () => {
         >
           Exam
         </NavLink>
-        <NavLink
+        {/* <NavLink
           style={({ isActive }) => {
             return { color: isActive ? "black" : "" };
           }}
           to={"/academics/contact"}
         >
           Contact
-        </NavLink>
+        </NavLink> */}
         <NavLink
           style={({ isActive }) => {
             return { color: isActive ? "black" : "" };
