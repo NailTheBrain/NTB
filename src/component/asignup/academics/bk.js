@@ -1,9 +1,10 @@
 import React from 'react'
 
+
 export default function Bk(props) {
   return (
     <>
-      <div className="book">
+      <div className="book" data-tilt>
         <img src={require(`../../images/books/${props.img}`)} alt="" />
         <p>
           <span>

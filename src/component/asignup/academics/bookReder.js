@@ -1,6 +1,5 @@
 import React from 'react'
 import Bk from "./bk";
-import  { useState } from "react";
 
 export default function BookReder(props) {
   // function scroll(){
@@ -9,7 +8,10 @@ export default function BookReder(props) {
   return (
     <>
       <hr />
-      <div className="booksBottomHead center  hover-scale">
+      <div
+        className="booksBottomHead center  hover-scale "
+        data-tilt
+      >
         <div className="bookHeading mb-3 mt-3">
           <h3>{props.srch} books</h3>
         </div>

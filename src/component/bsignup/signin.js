@@ -14,10 +14,8 @@ export default function Signin() {
   let data = useLocation().state;
   let show;
   let showmail;
-  data === "ain" ? (show = "Academics") : (show = "Development");
-  data === "ain"
-    ? (showmail = "Please enter student mail id")
-    : (showmail = "We'll never share your email with anyone.");
+  console.log(data);
+  
 
   //  for animation of words
   useEffect(() => {
@@ -31,9 +29,12 @@ export default function Signin() {
         )
         .join("");
     });
-    if (data === null) navigate("/field");
-    else data = data.type;
+    if (data === null) navigate("/field")
   }, []);
+  data.type === "ain" ? (show = "Academics") : (show = "Development");
+  data.type === "ain"
+    ? (showmail = "Please enter student mail id")
+    : (showmail = "We'll never share your email with anyone.");
 
   // Alert start
   const [showAlert, setshowAlert] = useState(false);
@@ -55,7 +56,7 @@ export default function Signin() {
   }
 
   function sub() {
-    if (data === "ain" && mail.split("@")[1] !== "miet.ac.in") {
+    if (data.type === "ain" && mail.split("@")[1] !== "miet.ac.in") {
       setshowAlert(true);
       setwarnAlert(1);
       settextAlert("Please enter valid student mail id 😕");

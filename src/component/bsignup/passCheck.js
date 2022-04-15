@@ -43,7 +43,6 @@ export function showCall(e){
     }else{
       e.classList.add("fa-eye");
       e.classList.remove("fa-eye-slash");
-      // console.log(e.parentElement.firstElementChild);
       e.parentElement.firstElementChild.type="password"
     }
 }

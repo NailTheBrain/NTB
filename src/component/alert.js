@@ -17,7 +17,7 @@ export default function Alert(props) {
               data-aos-delay="250"
             >
               <div data-aos="zoom-in" data-aos-delay="800">
-                {props.warn != 1 && props.warn != 2 && (
+                {props.warn !== 1 && props.warn !== 2 && (
                   <i
                     className="fa-solid fa-check"
                     style={{ color: "green" }}

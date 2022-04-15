@@ -21,12 +21,11 @@ export default function Signup() {
         .join("");
     });
     if (data === null) navigate("/fields");
-    else data = data.type;
   });
   let show;
   let showmail;
-  data === "aup" ? (show = "Academics") : (show = "Development");
-  data === "aup"
+  data.type === "aup" ? (show = "Academics") : (show = "Development");
+  data.type === "aup"
     ? (showmail = "Please enter student mail id")
     : (showmail = "We'll never share your email with anyone.");
 
@@ -76,7 +75,7 @@ export default function Signup() {
   }
 
   function sub() {
-    if (data === "ain" && mail.split("@")[1] !== "miet.ac.in") {
+    if (data.type === "ain" && mail.split("@")[1] !== "miet.ac.in") {
       setshowAlert(true);
       setwarnAlert(1)
       settextAlert("Please enter valid student mail id 😕");
