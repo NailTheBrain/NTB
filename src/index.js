@@ -5,5 +5,10 @@ import { BrowserRouter as Router } from "react-router-dom";
 import "./style.css"
 import "./responsive.css"
 // basename = "/sa";
-ReactDOM.render(<Router ><App/></Router>, document.getElementById("root"));
+ReactDOM.render(
+  <Router basename="/NTB">
+    <App />
+  </Router>,
+  document.getElementById("root")
+);
 // basename = "/sa";
