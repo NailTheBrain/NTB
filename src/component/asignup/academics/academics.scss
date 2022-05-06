@@ -141,12 +141,12 @@
     height: 80px;
     padding: 0 3rem;
     justify-content: space-between !important;
-    position: fixed;
-    transform: scale(0);
+    position: sticky;
+    transform: scale(1);
     top: 0;
     left: 0;
     background-color: rgb(180, 217, 238);
-    z-index: 99;
+    z-index: 9;
     transition: var(--trans3);
 }
 .booksNav-left{

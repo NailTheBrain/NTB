@@ -4,11 +4,10 @@ import App from "./App"
 import { BrowserRouter as Router } from "react-router-dom";
 import "./style.css"
 import "./responsive.css"
-// basename = "/sa";
+// basename="/NTB"
 ReactDOM.render(
-  <Router basename="/NTB">
+  <Router >
     <App />
   </Router>,
   document.getElementById("root")
 );
-// basename = "/sa";

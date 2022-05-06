@@ -145,7 +145,7 @@
 
 .bookHeading h3 {
   font-size: 4rem;
-  color: #068fdf;
+  color: rgb(6, 143, 223);
   font-weight: 600;
 }
 
@@ -159,12 +159,13 @@
   height: 80px;
   padding: 0 3rem;
   justify-content: space-between !important;
-  position: fixed;
-  transform: scale(0);
+  position: -webkit-sticky;
+  position: sticky;
+  transform: scale(1);
   top: 0;
   left: 0;
-  background-color: #b4d9ee;
-  z-index: 99;
+  background-color: rgb(180, 217, 238);
+  z-index: 9;
   transition: var(--trans3);
 }
 

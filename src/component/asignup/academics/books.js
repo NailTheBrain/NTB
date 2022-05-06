@@ -19,22 +19,6 @@ export default function Books(props) {
     srch.length === 0 ? setShow(true) : setShow(false);
   },[srch])
 
-// for scrollong dispaly nav bar
-  useEffect(() => {
-    const showNav = () => {
-       if (window.scrollY >= (window.innerHeight * 3) / 6) {
-        document.getElementById("booksNav").style.transform = "scale(1)";
-      } else{ document.getElementById("booksNav").style.transform = "scale(0)";
-      setSrch("");
-    }
-    };
-
-    window.addEventListener("scroll", showNav);
-
-    return () => {
-      window.removeEventListener("scroll", showNav);
-    };
-  }, []);
 
   // for description
    const [name, setName] = useState("");
@@ -60,9 +44,6 @@ export default function Books(props) {
                   id="book"
                   className={i}
                   onClick={() => description(index)}
-                  data-bs-toggle="offcanvas"
-                  data-bs-target="#offcanvasWithBothOptions"
-                  aria-controls="offcanvasWithBothOptions"
                   key={index}
                 >
                   <Bk name={value.name} text={value.text} img={value.img} />
@@ -128,9 +109,6 @@ export default function Books(props) {
                   <div
                     id="book"
                     onClick={() =>description(index)}
-                    data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvasWithBothOptions"
-                    aria-controls="offcanvasWithBothOptions"
                     key={index}
                   >
                     <Bk name={value.name} text={value.text} img={value.img} />
@@ -141,31 +119,6 @@ export default function Books(props) {
           </div>
         </>
       )}
-      <div
-        className="offcanvas offcanvas-start "
-        data-bs-scroll="true"
-        tabIndex="-1"
-        id="offcanvasWithBothOptions"
-        aria-labelledby="offcanvasWithBothOptionsLabel"
-      >
-        <div className="offcanvas-header">
-          <h5 className="offcanvas-title" id="offcanvasWithBothOptionsLabel">
-            {name}
-          </h5>
-          <button
-            type="button"
-            className="btn-close text-reset"
-            data-bs-dismiss="offcanvas"
-            aria-label="Close"
-          ></button>
-        </div>
-        <div className="offcanvas-body">
-          <p>{text}</p>
-          <a href={link} className="button center">
-            Open &nbsp; <i className="fa-solid fa-arrow-right"></i>
-          </a>
-        </div>
-      </div>
     </div>
   );
 }

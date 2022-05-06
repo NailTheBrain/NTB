@@ -10,11 +10,11 @@ import FooterAll from './footerAll';
 const App = () => {
   return (
     <>
-    <ContactCall/>
+    {/* <ContactCall/> */}
       <Routes>
       <Route path="/*" element={<Mainb />} />
       <Route path="/academics/*" element={<Mainaa/>}/>
-      <Route path="/contact" element={<Contact/>}/>
+      {/* <Route path="/contact" element={<Contact/>}/> */}
       </Routes>
       <FooterAll/>
     </>
