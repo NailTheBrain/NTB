@@ -1,0 +1,31 @@
+/* for area */
+.area1{
+  font-size:3rem;
+}
+.area1 input,.op-user-search input{
+    font-size:2rem;
+    border-radius: 3rem;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.395);
+    padding-left: 2rem;
+    width: 70vw;
+}
+.op-heading{
+    position:absolute;
+    top: 0;
+}
+
+.op-data{
+  width: 90vw;
+  min-height:75vh;
+  margin: 100px 0;
+}
+
+.op-leftlink h2{
+    margin-right: 2rem;
+    font-size: 3rem;
+    font-weight: 900;
+}
+.op-leftlink h2:nth-child(2){
+  color: red;
+  cursor: pointer;
+}

@@ -6,7 +6,7 @@ import "./style.css"
 import "./responsive.css"
 // basename="/NTB"
 ReactDOM.render(
-  <Router >
+  <Router basename="/NTB">
     <App />
   </Router>,
   document.getElementById("root")

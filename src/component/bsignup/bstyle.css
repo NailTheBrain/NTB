@@ -19,6 +19,11 @@ nav {
   overflow: initial;
   position: relative;
 }
+.navbar{
+  position: absolute !important;
+  right:0;
+  top: 0;
+}
 nav .rightlink {
   font-size: 3rem;
   font-weight: 600;
