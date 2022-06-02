@@ -25,13 +25,13 @@ export  function passCheck(value) {
   } else {
     textShow[4].style.display = "block";
   }
-  if (value.length > 8) {
+  if (value.length >= 8) {
     textShow[0].style.display = "none";
   } else {
     textShow[0].style.display = "block";
   }
   return (
-    (value.match(/[A-z0-9]/) && value.length > 8 && value.match(/[^A-z0-9]/))?true:false
+    (value.match(/[A-z0-9]/) && value.length >= 8 && value.match(/[^A-z0-9]/))?true:false
   );
 }
 

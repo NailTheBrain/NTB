@@ -27,10 +27,10 @@ export default function BookReder(props) {
                   aria-controls="offcanvasWithBothOptions"
                   key={index}
                 >
-                  <Bk name={value.name} text={value.text} img={value.img} />
+                  <Bk name={value.name} author={value.author} branch={value.branch} />
                 </div>
               );
-            } else return <div className="none">.</div>;
+            } else return <div className="none" key={index} >.</div>;
           })}
         </div>
       </div>

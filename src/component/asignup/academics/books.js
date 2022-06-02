@@ -3,9 +3,18 @@ import Bk from './bk';
 import Heading from "../../heading";
 import BookReder from './bookReder';
 // import { useLocation } from "react-router-dom";
+import li from "../../../link/books"
 
 
 export default function Books(props) {
+  useEffect(async() => {
+     let a = await li.All()
+     if (a.status==200)
+        setAll(a.data.allBook)
+  }, [])
+
+
+  const [all, setAll] = useState([])
   // for seaching 
   const [srch,setSrch]=useState("");
   const [show,setShow]=useState(true);
@@ -25,8 +34,8 @@ export default function Books(props) {
   const [text, setText] = useState("");
   const [link, setLink] = useState("");
   function description(e){
-    setName(props.type[e].name);
-    setText(props.type[e].text);
+    setName(all[e].name);
+    setText(all[e].text);
     // setLink(bkData[e].link)
     console.log(e);
   }
@@ -36,7 +45,7 @@ export default function Books(props) {
     <div data-aos="zoom-out" >
       <div className="books-top center">
         <div className="books-left">
-          {props.type.map((value, index) => {
+          {all.map((value, index) => {
             let i = `bk${index + 1}`;
             if (index < 3)
               return (
@@ -46,7 +55,7 @@ export default function Books(props) {
                   onClick={() => description(index)}
                   key={index}
                 >
-                  <Bk name={value.name} text={value.text} img={value.img} />
+                  <Bk name={value.name} author={value.author} branch={value.branch} />
                 </div>
               );
           })}
@@ -92,18 +101,18 @@ export default function Books(props) {
       </div>
       {show && (
         <>
-          <BookReder srch="DSA" des={description} type={props.type} />
-          <BookReder srch="MATHS" des={description} type={props.type} />
-          <BookReder srch="COA" des={description} type={props.type} />
-          <BookReder srch="COA" des={description} type={props.type} />
-          <BookReder srch="ML" des={description} type={props.type} />
+          <BookReder srch="DATA-STRUCTURE" des={description} type={all} />
+          <BookReder srch="MATHS" des={description} type={all} />
+          <BookReder srch="COMPUTER-ORGANISATION" des={description} type={all} />
+          <BookReder srch="MACHINE-LEARNING" des={description} type={all} />
+          <BookReder srch="C-PROGRAMMING" des={description} type={all} />
         </>
       )}
       {!show && (
         <>
           <hr />
           <div className="books-bottom " id="booksBottom">
-            {props.type.map((value, index) => {
+            {all.map((value, index) => {
               if (value.name.toUpperCase().search(srch) !== -1) {
                 return (
                   <div
@@ -111,7 +120,7 @@ export default function Books(props) {
                     onClick={() =>description(index)}
                     key={index}
                   >
-                    <Bk name={value.name} text={value.text} img={value.img} />
+                    <Bk name={value.name} author={value.author} branch={value.branch} />
                   </div>
                 );
               } else return <div className="none">.</div>;

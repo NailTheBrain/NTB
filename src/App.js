@@ -1,14 +1,14 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Main from './admin/main';
+// import Main from './admin/main'
 import Mainaa from './component/asignup/academics/main';
 import Mainb from "./component/bsignup/main"
 // import Contact from './contact';
 // import ContactCall from './contactCall';
 import FooterAll from './footerAll';
 
-
-const App = () => {
+const App =  () => {
+  
   return (
     <>
     {/* <ContactCall/> */}

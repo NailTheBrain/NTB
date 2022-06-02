@@ -1,12 +1,10 @@
 import React from 'react';
 import { passCheck, showCall } from "./passCheck";
-import { useState,useEffect} from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import "./bstyle.css";
 import Alert from "../alert";
-
-
- 
+import link from "../../link/user"
 
 
 export default function Signin() {
@@ -14,8 +12,7 @@ export default function Signin() {
   let data = useLocation().state;
   let show;
   let showmail;
-  console.log(data);
-  
+
 
   //  for animation of words
   useEffect(() => {
@@ -55,7 +52,7 @@ export default function Signin() {
     setPass(e);
   }
 
-  function sub() {
+  async function sub() {
     if (data.type === "ain" && mail.split("@")[1] !== "miet.ac.in") {
       setshowAlert(true);
       setwarnAlert(1);
@@ -66,13 +63,27 @@ export default function Signin() {
       setwarnAlert(1);
       settextAlert("Please enter valid mail id 😕");
     } else if (!password) {
-     setshowAlert(true);
-     setwarnAlert(2);
-     settextAlert("Please enter Password with right validation 😕");
-    } else {
       setshowAlert(true);
-      setwarnAlert(3);
-      settextAlert("Done 👌");
+      setwarnAlert(2);
+      settextAlert("Please enter Password with right validation 😕");
+    } else {
+      let a = await link.Login({
+        email: mail,
+        password: pass
+      })
+
+      if (a.data.success) {
+        setshowAlert(true);
+        setwarnAlert(3);
+        settextAlert("Done 👌");
+        if(!showAlert)navigate("/academics")
+      }
+      else{
+        setshowAlert(true);
+        setwarnAlert(2);
+        settextAlert(a.data.error,"😕");
+      }
+
     }
   }
 

@@ -1,16 +1,25 @@
-import React from 'react';
+import React, {useState,useEffect} from 'react';
 import { Route, Routes } from 'react-router-dom';
 import "../../bsignup/bstyle.css";
 import Nav from "./nav"
 import Home from "./home"
 import Books from "./books"
 import  "./academics.css"
-import { bkData } from "./bkdata";
-import { bkData1 } from "./bkdata1";
-// import Contact from './contact';
 import Footer from '../../../footer';
+import link from "../../../link/books"
+import { useNavigate } from "react-router-dom";
 
 export default function Maina() {
+  const navigate = useNavigate();
+
+  useEffect( async () => {
+    let a = await link.All();
+    if (a.status!=200)
+      navigate("/")
+  }, [])
+  
+
+
   return (
     <div className="Main">
       <Nav />
@@ -20,7 +29,7 @@ export default function Maina() {
           path="/books"
           element={
             <Books
-              type={bkData}
+              // type={all}
               name="Books"
               text=" The beginning is the most precious part of the work. No one can
               afford to stand by and do nothing, so grab limitless opportunities
@@ -33,7 +42,7 @@ export default function Maina() {
           path="/exams"
           element={
             <Books
-              type={bkData1}
+              // type={all}
               name="Exam"
               text=" Building a future generation of innovation means setting up the
               youth for success.

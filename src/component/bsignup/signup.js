@@ -4,6 +4,7 @@ import { passCheck, showCall } from "./passCheck";
 import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Alert from "../alert";
+import link from "../../link/user"
 
 export default function Signup() {
   let navigate = useNavigate();
@@ -74,7 +75,7 @@ export default function Signup() {
     setconPass(e);
   }
 
-  function sub() {
+  async function sub() {
     if (data.type === "ain" && mail.split("@")[1] !== "miet.ac.in") {
       setshowAlert(true);
       setwarnAlert(1)
@@ -93,9 +94,24 @@ export default function Signup() {
       setwarnAlert(2);
       settextAlert("Please Match the Password 😕");
     } else {
-      setshowAlert(true);
-      setwarnAlert(3);
-      settextAlert("Done 👌");
+      
+      let a = await link.Signup({
+        email: mail,
+        password: pass,
+        name:`${fname} ${lname}`
+      })
+
+      if (a.data.success) {
+        setshowAlert(true);
+        setwarnAlert(3);
+        settextAlert("Done 👌");
+        if(!showAlert)navigate("/academics")
+      }
+      else{
+        setshowAlert(true);
+        setwarnAlert(2);
+        settextAlert(a.data.error,"😕");
+      }
     }
   }
 
