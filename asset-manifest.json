@@ -1,9 +1,9 @@
 {
-  "main.css": "/NTB/static/css/main.07c82eda.chunk.css",
-  "main.js": "/NTB/static/js/main.a478c1ee.chunk.js",
-  "main.js.map": "/NTB/static/js/main.a478c1ee.chunk.js.map",
-  "static/js/1.db2621c6.chunk.js": "/NTB/static/js/1.db2621c6.chunk.js",
-  "static/js/1.db2621c6.chunk.js.map": "/NTB/static/js/1.db2621c6.chunk.js.map",
+  "main.css": "/NTB/static/css/main.b07a99d8.chunk.css",
+  "main.js": "/NTB/static/js/main.6ecc53c2.chunk.js",
+  "main.js.map": "/NTB/static/js/main.6ecc53c2.chunk.js.map",
+  "static/js/1.712520f7.chunk.js": "/NTB/static/js/1.712520f7.chunk.js",
+  "static/js/1.712520f7.chunk.js.map": "/NTB/static/js/1.712520f7.chunk.js.map",
   "runtime~main.js": "/NTB/static/js/runtime~main.796be353.js",
   "runtime~main.js.map": "/NTB/static/js/runtime~main.796be353.js.map",
   "static/media/style.css": "/NTB/static/media/back.48108c78.jpeg",
@@ -12,8 +12,8 @@
   "static/media/img-3.png": "/NTB/static/media/img-3.c4b5cdcd.png",
   "static/media/img-4.png": "/NTB/static/media/img-4.11381666.png",
   "static/media/img-1.png": "/NTB/static/media/img-1.aa3b2ddd.png",
-  "static/css/main.07c82eda.chunk.css.map": "/NTB/static/css/main.07c82eda.chunk.css.map",
+  "static/css/main.b07a99d8.chunk.css.map": "/NTB/static/css/main.b07a99d8.chunk.css.map",
   "index.html": "/NTB/index.html",
-  "precache-manifest.6ac3587ef87c2f12eb008b98b017153e.js": "/NTB/precache-manifest.6ac3587ef87c2f12eb008b98b017153e.js",
+  "precache-manifest.716a2fe6886ed943fe683998f9696771.js": "/NTB/precache-manifest.716a2fe6886ed943fe683998f9696771.js",
   "service-worker.js": "/NTB/service-worker.js"
 }
