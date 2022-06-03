@@ -104,8 +104,10 @@ export default function Signup() {
       if (a.data.success) {
         setshowAlert(true);
         setwarnAlert(3);
-        settextAlert("Done 👌");
-        if(!showAlert)navigate("/academics")
+        settextAlert("Done, Now Login 👌");
+        setTimeout(() => {
+          navigate("/field")
+        }, 2000);
       }
       else{
         setshowAlert(true);

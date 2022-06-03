@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <div className="no-scroll" data-aos="zoom-out">
       <div className="home center hover-scale">
-        <div className="left">
+        <div className="left" data-aos="flip-down" data-aos-delay="200">
           <h2>
             <strong>Academics</strong>
           </h2>
@@ -21,15 +21,16 @@ const Home = () => {
             just university exams but also exams like GATE.
           </p>
         </div>
-        <img src={require("../../images/img-2.png")} alt="" />
+        <img src={require("../../images/img-2.png")} alt=""  data-aos="slide-left"/>
+        
       </div>
       <hr />
       {/* books */}
       <div className="hover-scale">
         <Heading text="Books" size="12" />
         <div className="home center">
-          <img src={require("../../images/img-3.png")} alt="" />
-          <div className="left1">
+          <img src={require("../../images/img-3.png")} alt=""  data-aos="slide-right"/>
+          <div className="left1" data-aos="flip-down" data-aos-delay="200">
             <p style={{ fontSize: "2rem" }}>
               The beginning is the most precious part of the work. No one can
               afford to stand by and do nothing, so grab limitless opportunities

@@ -7,6 +7,7 @@ const Login = async (props) => {
                       email: props.email};
     const res =  await axios.post(`${host}user/login`,credentials)
     .catch(err => {return err.response})
+    localStorage.setItem("authtoken", res.data.authtoken);
     return res
   }
 const Signup = async (props) => {

@@ -13,6 +13,18 @@ html {
   overflow-x: auto;
 }
 
+::-moz-selection {
+  color: black !important;
+  background: rgba(255, 255, 255, 0.3);
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+}
+
+::selection {
+  color: black !important;
+  background: rgba(255, 255, 255, 0.3);
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+}
+
 /* body{
     over
 } */
@@ -41,27 +53,20 @@ h1, h2, h3, h4, h5, p, span, a {
 /* Track */
 ::-webkit-scrollbar-track {
   margin: 5px;
-  background: var(--IVclr);
+  background: #fff;
   border-radius: 20px;
-}
-::-webkit-scrollbar-track:hover{
-  background: rgb(200, 199, 199);
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
   border-radius: 20px;
   background: #77bee7;
-  transform: var(--trans2);
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: var(--VIclr);
-  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.6);
 }
-
-
 
 /* for top linking box */
 .toTop {

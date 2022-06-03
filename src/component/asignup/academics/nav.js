@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate,Link } from "react-router-dom";
 import "../../bsignup/bstyle.css";
 
 const Nav = () => {
@@ -21,6 +21,12 @@ const Nav = () => {
       document.getElementById("toggle").classList.remove("open");
     })
   })
+
+  // logout==========
+  const logout=()=>{
+    localStorage.clear();
+    navigate("/")
+  }
 
   return (
     <nav className=" center">
@@ -52,33 +58,12 @@ const Nav = () => {
         >
           Exam
         </NavLink>
-        {/* <NavLink
-          style={({ isActive }) => {
-            return { color: isActive ? "black" : "" };
-          }}
-          to={"/academics/contact"}
-        >
-          Contact
-        </NavLink> */}
-        <NavLink
-          style={({ isActive }) => {
-            return { color: isActive ? "black" : "" };
-          }}
-          to={"/fields"}
-          className="center"
-        >
-          <img src={require("../../images/logo.png")} alt="" />
-          Abhishek
-        </NavLink>
-        <NavLink
-          style={({ isActive }) => {
-            return { color: isActive ? "black" : "" };
-          }}
-          to={"/fields"}
-          className="center"
+        <div
+         onClick={logout}
+          className="center a"
         >
           <i className="fas fa-sign-out-alt" style={{ overflow: "hidden" }}></i>
-        </NavLink>
+        </div>
       </div>
     </nav>
   );

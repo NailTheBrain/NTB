@@ -11,6 +11,19 @@ html{
     position: relative;
     overflow-x: auto;
 }
+
+// select
+::-moz-selection{
+    color: black !important;
+    background: rgba(255, 255, 255, 0.3);
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+}
+  ::selection {
+    color: black !important;
+    background: rgba(255, 255, 255, 0.3);
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+  }
+
 /* body{
     over
 } */

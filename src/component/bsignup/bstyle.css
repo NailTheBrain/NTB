@@ -45,7 +45,7 @@ nav .rightlink span span {
 nav .leftlink {
   overflow: hidden;
 }
-nav .leftlink a {
+nav .leftlink a ,nav .leftlink .a {
   margin: 0 2rem;
   font-size: 2rem;
   color: var(--Vclr);
@@ -53,7 +53,7 @@ nav .leftlink a {
   transition: var(--trans1);
   text-decoration: none;
 }
-nav .leftlink a:hover {
+nav .leftlink a:hover, nav .leftlink .a:hover {
   transform: scale(1.05);
   color: var(--IIIclr);
 }
@@ -62,7 +62,7 @@ nav .leftlink a img {
   border-radius: 50%;
   padding-right: 0.2rem;
 }
-nav .leftlink a i {
+nav .leftlink .a i {
   height: 2.5rem;
   padding-left: 0.4rem;
   color: red;

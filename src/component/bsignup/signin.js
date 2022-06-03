@@ -76,7 +76,9 @@ export default function Signin() {
         setshowAlert(true);
         setwarnAlert(3);
         settextAlert("Done 👌");
-        if(!showAlert)navigate("/academics")
+        setTimeout(() => {
+          navigate("/academics")
+        }, 2000);
       }
       else{
         setshowAlert(true);
