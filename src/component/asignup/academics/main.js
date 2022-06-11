@@ -1,4 +1,4 @@
-import React, {useState,useEffect} from 'react';
+import React, {useEffect} from 'react';
 import { Route, Routes } from 'react-router-dom';
 import "../../bsignup/bstyle.css";
 import Nav from "./nav"
@@ -14,7 +14,7 @@ export default function Maina() {
 
   useEffect( async () => {
     let a = await link.All();
-    if (a.status!=200)
+    if (a.status!==200)
       navigate("/")
   }, [])
   

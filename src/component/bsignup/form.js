@@ -7,7 +7,7 @@ export default function Form() {
     <>
       <div className="form center" >
         <div className="center links">
-          <h1></h1>
+          {/* <h1></h1> */}
         </div>
         <Outlet />
       </div>

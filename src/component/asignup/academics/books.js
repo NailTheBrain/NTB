@@ -9,7 +9,7 @@ import li from "../../../link/books"
 export default function Books(props) {
   useEffect(async() => {
      let a = await li.All()
-     if (a.status==200)
+     if (a.status===200)
         setAll(a.data.allBook)
   }, [])
 
@@ -32,7 +32,6 @@ export default function Books(props) {
   // for description
    const [name, setName] = useState("");
   const [text, setText] = useState("");
-  const [link, setLink] = useState("");
   function description(e){
     setName(all[e].name);
     setText(all[e].text);
