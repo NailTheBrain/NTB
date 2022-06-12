@@ -18,7 +18,7 @@ function Maind() {
     <div className="dev">
       <Nav />
       <div className="dev-opt center ">
-        <button className='devBtn' > Run </button>
+        <button className='devBtn'  style={{background:"limegreen"}}> Run </button>
         <button className='devBtn' > share </button>
         <span>Theme : </span>
         <select id="-theme" value={theme} onClick={(e)=>{setTheme(e.target.value)}}>
