@@ -2,7 +2,7 @@
     --devBack : rgba(18, 35, 56);
 }
 .dev{
-    background: linear-gradient(rgba(18, 35, 56, 0.5),rgba(18, 39, 56, 0.5)),url("../../images/back.jpeg") ;
+    background: url("../../images/back.jpeg") ;
     width: 100%;
     min-height: 80vh;
     margin: 0 ;
@@ -31,24 +31,60 @@
 
     span{
         color: white;
-        font-size: 2rem;
+        font-size: 1.5rem;
         text-transform: uppercase;
         margin-right: 1rem;
     }
 
     .devBtn ,select,input{
-        font-size: 2rem;
+        font-size: 1.5rem;
         padding:  0 2rem;
         border: none;
         outline: none;
         border-radius: 10px;
-        box-shadow: 1px 1px 20px rgba(255, 255, 255, 0.5);
+        // box-shadow: 1px 1px 20px rgba(255, 255, 255, 0.3);
         margin-right: 2rem;
         text-transform: uppercase;
+        background-color: rgb(19, 63, 117);
+        color: white;
     }
 
     input,select{
         width: 150px;
+    }
+}
+
+.devShortcut{
+    width: 100vw;
+    flex-direction: column;
+    overflow: scroll;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    font-size: 3rem;
+    color: white;
+    background-color: black;
+    z-index: 99;
+    padding-left: 10rem;
+
+    .close{
+        position: fixed;
+        top: 20px;
+        right: 40px;
+        cursor: pointer;
+        color: red;
+        font-size: 5rem;
+        text-shadow: 5px 6px 5px rgba(255, 255, 255, 0.4);
+    }
+
+    h3{
+        font-size: 5rem;
+    }
+    span{
+        color: red;
+        margin: 0 2rem;
     }
 }
 
