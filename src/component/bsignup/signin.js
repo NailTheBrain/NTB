@@ -5,6 +5,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import "./bstyle.css";
 import Alert from "../alert";
 import link from "../../link/user"
+import link1 from "../../link/devuser"
 
 
 export default function Signin() {
@@ -67,10 +68,18 @@ export default function Signin() {
       setwarnAlert(2);
       settextAlert("Please enter Password with right validation 😕");
     } else {
-      let a = await link.Login({
-        email: mail,
-        password: pass
-      })
+      let a
+      if (data.type === "ain") {
+        a = await link.Login({
+          email: mail,
+          password: pass
+        })
+      }else{
+        a = await link1.Login({
+          email: mail,
+          password: pass
+        })
+      }
 
       if (a.data.success) {
         setshowAlert(true);
@@ -80,10 +89,10 @@ export default function Signin() {
           navigate("/academics")
         }, 2000);
       }
-      else{
+      else {
         setshowAlert(true);
         setwarnAlert(2);
-        settextAlert(a.data.error,"😕");
+        settextAlert(a.data.error, "😕");
       }
 
     }

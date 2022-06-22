@@ -5,6 +5,9 @@ import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Alert from "../alert";
 import link from "../../link/user"
+import link1 from "../../link/devuser"
+import linkotp from "../../link/otp"
+import Loader from "../loader";
 
 export default function Signup() {
   let navigate = useNavigate();
@@ -43,6 +46,10 @@ export default function Signup() {
   const [conPass, setconPass] = useState("");
   const [password, setPassword] = useState(false);
   const [confirmPassword, setconfirmPassword] = useState(false);
+  //otp
+  const [showotp, setshowotp] = useState(false);
+  const [otp, setotp] = useState("");
+  const [otptoken, setotptoken] = useState("");
 
   function chkfname(e) {
     e = e.toUpperCase();
@@ -76,46 +83,65 @@ export default function Signup() {
   }
 
   async function sub() {
-    if (data.type === "ain" && mail.split("@")[1] !== "miet.ac.in") {
-      setshowAlert(true);
-      setwarnAlert(1)
-      settextAlert("Please enter valid student mail id 😕");
-      setMail("");
-    }else if ( !mail.match(/[^A-z0-9]/)) {
-      setshowAlert(true);
-      setwarnAlert(1);
-      settextAlert("Please enter valid mail id 😕");
-    } else if (!password) {
-      setshowAlert(true);
-      setwarnAlert(2);
-      settextAlert("Please enter Password with right validation 😕");
-    } else if (!confirmPassword) {
-      setshowAlert(true);
-      setwarnAlert(2);
-      settextAlert("Please Match the Password 😕");
-    } else {
-      
-      let a = await link.Signup({
+    //chek the details
+    // if (data.type === "ain" && mail.split("@")[1] !== "miet.ac.in") {
+    //   setshowAlert(true);
+    //   setwarnAlert(1)
+    //   settextAlert("Please enter valid student mail id 😕");
+    //   setMail("");
+    // } else if (!mail.match(/[^A-z0-9]/)) {
+    //   setshowAlert(true);
+    //   setwarnAlert(1);
+    //   settextAlert("Please enter valid mail id 😕");
+    // } else if (!password) {
+    //   setshowAlert(true);
+    //   setwarnAlert(2);
+    //   settextAlert("Please enter Password with right validation 😕");
+    // } else if (!confirmPassword) {
+    //   setshowAlert(true);
+    //   setwarnAlert(2);
+    //   settextAlert("Please Match the Password 😕");
+    // } else {
+      console.log("first")
+      let o
+      o = await linkotp.Otpreq({
+        email: mail,
+      })
+      setotptoken(o.data.authtoken);
+    // }
+  }
+  // request to backend
+ async function lol(){
+  if (!showotp) {
+    let a
+    if (data.type === "ain") {
+      a = await link.Signup({
         email: mail,
         password: pass,
-        name:`${fname} ${lname}`
+        name: `${fname} ${lname}`
       })
-
-      if (a.data.success) {
-        setshowAlert(true);
-        setwarnAlert(3);
-        settextAlert("Done, Now Login 👌");
-        setTimeout(() => {
-          navigate("/field")
-        }, 2000);
-      }
-      else{
-        setshowAlert(true);
-        setwarnAlert(2);
-        settextAlert(a.data.error,"😕");
-      }
+    } else {
+      a = await link1.Signup({
+        email: mail,
+        password: pass,
+        name: `${fname} ${lname}`
+      })
     }
-  }
+
+    if (a.data.success) {
+      setshowAlert(true);
+      setwarnAlert(3);
+      settextAlert("Done, Now Login 👌");
+      setTimeout(() => {
+        navigate("/field")
+      }, 2000);
+    }
+    else {
+      setshowAlert(true);
+      setwarnAlert(2);
+      settextAlert(a.data.error, "😕");
+    }
+  }}
 
   return (
     <>
@@ -236,12 +262,15 @@ export default function Signup() {
           </form>
         </div>
       </div>
+      {/* alert */}
       <Alert
         show={showAlert}
         setShow={setshowAlert}
         text={textAlert}
         warn={warnAlert}
       />
+      {/* loader */}
+      <Loader show={true}  />
     </>
   );
 }

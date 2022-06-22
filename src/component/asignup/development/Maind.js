@@ -2,25 +2,31 @@ import React, { useState } from 'react'
 import "./dev.css"
 import AceEditor from "react-ace";
 import Split from 'react-split'
-
 import 'ace-builds/webpack-resolver'
 import 'ace-builds/src-noconflict/ext-language_tools'
 import Nav from '../academics/nav'
+import Cryptr from 'cryptr';
+
 
 
 function Maind() {
-
-    const [theme, setTheme] = useState("cobalt")
-    const [mode, setMode] = useState("python")
-    const [fsize, setFsize] = useState(16)
-    const [short, setShort] = useState("none")
+  const [theme, setTheme] = useState("cobalt")
+  const [mode, setMode] = useState("python")
+  const [fsize, setFsize] = useState(16)
+  const [short, setShort] = useState("none")
+  const [code, setCode] = useState('')
 
     const font=(e)=>{
       setFsize(e)
       if(fsize<1)
         setFsize(1)
     }
-
+    let a =document.getElementsByClassName("ace_gutter-cell")
+    console.log(a)
+    for(let i=0;i<a.length;i++){
+      console.log(a[i].innerText)
+    }
+     
   return (
     <div className="dev">
       <Nav />
@@ -80,7 +86,7 @@ function Maind() {
           <option value="python">Python</option>
         </select>
         <span>Font Size : </span>
-        <input type="text" value={fsize} onChange={(e)=>{font(parseInt(e.target.value)); console.log(typeof(fsize))}}/>
+        <input type="number" min={10} value={fsize} onChange={(e)=>{font(parseInt(e.target.value))}}/>
       </div>
       <div className="dev">
         <Split
@@ -102,6 +108,8 @@ function Maind() {
               showPrintMargin={true}
               showGutter={true}
               highlightActiveLine={true}
+              onChange={(e)=>{setCode(e); console.log(e)}}
+              value={"Hello World\r\nplease enter the number: 5\r\nplease enter the number: 8\r\n13\r\n"}
               editorProps={{ $blockScrolling: Infinity }}
               setOptions={{
                 enableBasicAutocompletion: true,
@@ -113,13 +121,29 @@ function Maind() {
           </div>
           <div className="terminal" >
             <h3 style={{fontSize:`${fsize+2}px`}}>Terminal</h3>
-            <div className="ter-arr" style={{fontSize:`${fsize}px`}}>
-              hello dosto <br />
-              hello dosto <br />
-              hello dosto <br />
-              hello dosto <br />
-            </div>
+            <AceEditor
+              className=""
+              
+              mode={mode}
+              theme={theme}
+              name="contentp"
+              fontSize= {fsize}
+              showPrintMargin={true}
+              showGutter={true}
+              highlightActiveLine={true}
+              onChange={(e)=>{setCode(e); console.log(e)}}
+              value={"Hello World\r\nplease enter the number: 5\r\nplease enter the number: 8\r\n13\r\n"}
+              editorProps={{ $blockScrolling: Infinity }}
+              setOptions={{
+                enableBasicAutocompletion: true,
+                enableLiveAutocompletion: true,
+                enableSnippets: true,
+                showLineNumbers: true,
+                tabSize: 2,
+                setReadOnly:true,
+              }} />
           </div>
+          
         </Split>
       </div>
       <div className="devShortcut " style={{display:short}}>

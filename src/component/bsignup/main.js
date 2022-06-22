@@ -18,7 +18,7 @@ const Main = () => {
     <div className="main">
       <Nav />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home/>} />
         <Route path="/field" element={<Field />} />
         <Route path="/fields" element={<Fields />} />
         <Route path="/form" element={<Form />}>
