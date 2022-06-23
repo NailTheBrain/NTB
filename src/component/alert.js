@@ -39,7 +39,7 @@ export default function Alert(props) {
             </div>
             <div className="AlertClose">
               <button className="button" onClick={() => props.setShow(false)}>
-                COOL!!
+               ✓ OK!!
               </button>
             </div>
           </div>

@@ -3,8 +3,6 @@ import otp from '../../link/otp'
 
 const Otp = (props) => {
 
-  const [dis, setdis] = useState("block")
-
   const run = (a, b, c) => {
     if (document.getElementById(c).value === "") {
       document.getElementById(a).focus()
@@ -53,7 +51,7 @@ const Otp = (props) => {
     // }
   }
 
-  if(props.otp.length===0){
+  if (props.otp.length === 0) {
     document.querySelectorAll(".txt").forEach((e) => {
       document.querySelector("#I").focus()
       e.value = ""
@@ -62,6 +60,17 @@ const Otp = (props) => {
   }
   return (
     <>
+
+      {/* {(props.show || props.toggle) && <>
+        {props.show ? (
+          <div className="close-otp" onClick={() => { props.setshow(false) }}>
+            ✘
+          </div>
+        ) : (<div className="close-otp" onClick={() => props.setshow(true)}>
+          ✍︎ OTP
+        </div>)}
+      </>} */}
+
       {props.show && (
         <div className='otp' >
           <div className="otp-box center col">

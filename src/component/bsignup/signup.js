@@ -13,6 +13,7 @@ import Otp from "./Otp";
 export default function Signup() {
   let navigate = useNavigate();
   let data = useLocation().state;
+
   //  for animation of words
   useEffect(() => {
     let input = document.querySelectorAll(".inputDes");
@@ -26,14 +27,17 @@ export default function Signup() {
         .join("");
     });
     if (data === null) navigate("/fields");
-  });
+  }, []);
 
   let show;
   let showmail;
-  data.type === "aup" ? (show = "Academics") : (show = "Development");
-  data.type === "aup"
-    ? (showmail = "Please enter student mail id")
-    : (showmail = "We'll never share your email with anyone.");
+  if (data === null) navigate("/fields");
+  else {
+    data.type === "aup" ? (show = "Academics") : (show = "Development");
+    data.type === "aup"
+      ? (showmail = "Please enter student mail id")
+      : (showmail = "We'll never share your email with anyone.");
+  }
 
   // Alert start
   const [showAlert, setshowAlert] = useState(false);
@@ -55,6 +59,7 @@ export default function Signup() {
 
   //otp start
   const [showotp, setshowotp] = useState(false);
+  // const [showtoggle, setshowtoggle] = useState(false);
   const [otp, setotp] = useState("");
   const [showotploading, setshowotploading] = useState(false);
   const [otptoken, setotptoken] = useState("");
@@ -93,83 +98,92 @@ export default function Signup() {
     setconfirmPassword(x === e);
     setconPass(e);
   }
-  
+
   async function sub() {
-    //chek the details
-    if (data.type === "ain" && mail.split("@")[1] !== "miet.ac.in") {
-      setshowAlert(true);
-      setwarnAlert(1)
-      settextAlert("Please enter valid student mail id 😕");
-      setMail("");
-    } else if (!mail.match(/[^A-z0-9]/)) {
-      setshowAlert(true);
-      setwarnAlert(1);
-      settextAlert("Please enter valid mail id 😕");
-    } else if (!password) {
-      setshowAlert(true);
-      setwarnAlert(2);
-      settextAlert("Please enter Password with right validation 😕");
-    } else if (!confirmPassword) {
-      setshowAlert(true);
-      setwarnAlert(2);
-      settextAlert("Please Match the Password 😕");
-    } else {
-      setshowLoader(true)
-      linkotp.Otpreq({
-        email: mail,
-      }).then((req)=>{
-        setshowLoader(false)
-        if(req.data===undefined || !req.data.success){
+    if (window.confirm("Have you CHECKED your MAIL??")) {
+      if (data.type === "aup" && mail.split("@")[1] !== "miet.ac.in") {
+        setshowAlert(true);
+        setwarnAlert(1)
+        settextAlert("Please enter valid student mail id 😕");
+        setMail("");
+      } else if (!mail.match(/[^A-z0-9]/)) {
+        setshowAlert(true);
+        setwarnAlert(1);
+        settextAlert("Please enter valid mail id 😕");
+      } else if (!password) {
+        setshowAlert(true);
+        setwarnAlert(2);
+        settextAlert("Please enter Password with right validation 😕");
+      } else if (!confirmPassword) {
+        setshowAlert(true);
+        setwarnAlert(2);
+        settextAlert("Please Match the Password 😕");
+      } else {
+        setshowLoader(true)
+        linkotp.Otpreq({
+          email: mail,
+        }).then((req) => {
+          setshowLoader(false)
+          if (req.data === undefined || !req.data.success) {
             setshowAlert(true);
             setwarnAlert(2);
             settextAlert("Some server error please try later 😕");
           }
-        else{
-          console.log("run");
-          setotptoken(req.data.authtoken);
-          setshowotp(true)
-        }
-      })
+          else {
+            console.log("run");
+            setotptoken(req.data.authtoken);
+            setshowotp(true)
+            // setshowtoggle(true)
+          }
+        })
+      }
     }
   }
+
   // request to backend
-  if(otp.length ===6){
+  if (otp.length === 6) {
     lol()
   }
- async function lol(){
-  console.log("otp");
-  if ( otptoken.length!=0) {
-    let a
-    if (data.type === "ain") {
-      a = await link.Signup({
-        email: mail,
-        password: pass,
-        name: `${fname} ${lname}`
-      })
-    } else {
-      a = await link1.Signup({
-        email: mail,
-        password: pass,
-        name: `${fname} ${lname}`
-      })
-    }
+  async function lol() {
+    console.log("otp");
+    if (otptoken.length !== 0 && otp.length === 6) {
+      let a
+      if (data.type === "aup") {
+        a = await link.Signup({
+          email: mail,
+          password: pass,
+          name: `${fname} ${lname}`,
+          otp: otp,
+          auth: otptoken
+        })
+        setotp("")
+      } else {
+        a = await link1.Signup({
+          email: mail,
+          password: pass,
+          name: `${fname} ${lname}`,
+          otp: otp,
+          auth: otptoken
+        })
+      }
 
-    if (a.data.success) {
-      setshowAlert(true);
-      setwarnAlert(3);
-      settextAlert("Done, Now Login 👌");
-      setTimeout(() => {
-        navigate("/field")
-      }, 2000);
+      if (a.data.success) {
+        setshowAlert(true);
+        setwarnAlert(3);
+        settextAlert("Done, Now Login 👌");
+        setTimeout(() => {
+          navigate("/field")
+        }, 4000);
+      }
+      else {
+        setotp("")
+        setshowotploading(false)
+        setshowAlert(true);
+        setwarnAlert(2);
+        settextAlert((a.data.error) ? a.data.error : "Some Internal error Please try later", "😕");
+      }
     }
-    else {
-      setotp("")
-      setshowotploading(false)
-      setshowAlert(true);
-      setwarnAlert(2);
-      settextAlert((a.data.error)?a.data.error:"Some Internal error Please try later", "😕");
-    }
-  }}
+  }
 
   return (
     <>
@@ -298,9 +312,18 @@ export default function Signup() {
         warn={warnAlert}
       />
       {/* loader */}
-      <Loader show={showLoader}  />
+      <Loader show={showLoader} />
       {/* otp */}
-      <Otp show={showotp} setotp={setotp} otp={otp} loading={showotploading} setloading={setshowotploading}/>
+      <Otp
+        show={showotp}
+        // toggle={showtoggle} 
+        setshow={setshowotp}
+        setotp={setotp}
+        otp={otp}
+        loading={showotploading}
+        setloading={setshowotploading}
+      />
     </>
   );
+
 }
