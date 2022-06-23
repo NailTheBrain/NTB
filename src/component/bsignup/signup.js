@@ -8,6 +8,7 @@ import link from "../../link/user"
 import link1 from "../../link/devuser"
 import linkotp from "../../link/otp"
 import Loader from "../loader";
+import Otp from "./Otp";
 
 export default function Signup() {
   let navigate = useNavigate();
@@ -26,6 +27,7 @@ export default function Signup() {
     });
     if (data === null) navigate("/fields");
   });
+
   let show;
   let showmail;
   data.type === "aup" ? (show = "Academics") : (show = "Development");
@@ -39,6 +41,10 @@ export default function Signup() {
   const [warnAlert, setwarnAlert] = useState();
   // Alert end
 
+  // loader start
+  const [showLoader, setshowLoader] = useState(false);
+  // loader end
+
   const [fname, setFName] = useState("");
   const [lname, setLName] = useState("");
   const [mail, setMail] = useState("");
@@ -46,10 +52,13 @@ export default function Signup() {
   const [conPass, setconPass] = useState("");
   const [password, setPassword] = useState(false);
   const [confirmPassword, setconfirmPassword] = useState(false);
-  //otp
+
+  //otp start
   const [showotp, setshowotp] = useState(false);
   const [otp, setotp] = useState("");
+  const [showotploading, setshowotploading] = useState(false);
   const [otptoken, setotptoken] = useState("");
+  //otp end
 
   function chkfname(e) {
     e = e.toUpperCase();
@@ -57,12 +66,14 @@ export default function Signup() {
       if (e[e.length - 1].match(/[A-Z]/)) setFName(e);
     } else setFName(e);
   }
+
   function chklname(e) {
     e = e.toUpperCase();
     if (e.length >= 1) {
       if (e[e.length - 1].match(/[A-Z]/)) setLName(e);
     } else setLName(e);
   }
+
   function passcheckcall(e) {
     let chk = passCheck(e);
     chk
@@ -71,6 +82,7 @@ export default function Signup() {
     setPassword(chk);
     setPass(e);
   }
+
   function conpasscheckcall(e) {
     let x = document.getElementById("password").value;
     let y = document.getElementById("passmach");
@@ -81,38 +93,52 @@ export default function Signup() {
     setconfirmPassword(x === e);
     setconPass(e);
   }
-
+  
   async function sub() {
     //chek the details
-    // if (data.type === "ain" && mail.split("@")[1] !== "miet.ac.in") {
-    //   setshowAlert(true);
-    //   setwarnAlert(1)
-    //   settextAlert("Please enter valid student mail id 😕");
-    //   setMail("");
-    // } else if (!mail.match(/[^A-z0-9]/)) {
-    //   setshowAlert(true);
-    //   setwarnAlert(1);
-    //   settextAlert("Please enter valid mail id 😕");
-    // } else if (!password) {
-    //   setshowAlert(true);
-    //   setwarnAlert(2);
-    //   settextAlert("Please enter Password with right validation 😕");
-    // } else if (!confirmPassword) {
-    //   setshowAlert(true);
-    //   setwarnAlert(2);
-    //   settextAlert("Please Match the Password 😕");
-    // } else {
-      console.log("first")
-      let o
-      o = await linkotp.Otpreq({
+    if (data.type === "ain" && mail.split("@")[1] !== "miet.ac.in") {
+      setshowAlert(true);
+      setwarnAlert(1)
+      settextAlert("Please enter valid student mail id 😕");
+      setMail("");
+    } else if (!mail.match(/[^A-z0-9]/)) {
+      setshowAlert(true);
+      setwarnAlert(1);
+      settextAlert("Please enter valid mail id 😕");
+    } else if (!password) {
+      setshowAlert(true);
+      setwarnAlert(2);
+      settextAlert("Please enter Password with right validation 😕");
+    } else if (!confirmPassword) {
+      setshowAlert(true);
+      setwarnAlert(2);
+      settextAlert("Please Match the Password 😕");
+    } else {
+      setshowLoader(true)
+      linkotp.Otpreq({
         email: mail,
+      }).then((req)=>{
+        setshowLoader(false)
+        if(req.data===undefined || !req.data.success){
+            setshowAlert(true);
+            setwarnAlert(2);
+            settextAlert("Some server error please try later 😕");
+          }
+        else{
+          console.log("run");
+          setotptoken(req.data.authtoken);
+          setshowotp(true)
+        }
       })
-      setotptoken(o.data.authtoken);
-    // }
+    }
   }
   // request to backend
+  if(otp.length ===6){
+    lol()
+  }
  async function lol(){
-  if (!showotp) {
+  console.log("otp");
+  if ( otptoken.length!=0) {
     let a
     if (data.type === "ain") {
       a = await link.Signup({
@@ -137,9 +163,11 @@ export default function Signup() {
       }, 2000);
     }
     else {
+      setotp("")
+      setshowotploading(false)
       setshowAlert(true);
       setwarnAlert(2);
-      settextAlert(a.data.error, "😕");
+      settextAlert((a.data.error)?a.data.error:"Some Internal error Please try later", "😕");
     }
   }}
 
@@ -270,7 +298,9 @@ export default function Signup() {
         warn={warnAlert}
       />
       {/* loader */}
-      <Loader show={true}  />
+      <Loader show={showLoader}  />
+      {/* otp */}
+      <Otp show={showotp} setotp={setotp} otp={otp} loading={showotploading} setloading={setshowotploading}/>
     </>
   );
 }

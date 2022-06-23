@@ -21,12 +21,12 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
     <script type="text/javascript">
-      (function (l) {
+      (function(l) {
         if (l.search[1] === "/") {
           var decoded = l.search
             .slice(1)
             .split("&")
-            .map(function (s) {
+            .map(function(s) {
               return s.replace(/~and~/g, "&");
             })
             .join("?");
@@ -39,9 +39,38 @@
       })(window.location);
     </script>
 
+    <!-- preloader -->
+    <style>
+      .loader {
+        width: 100%;
+        height: 100vh;
+        background-color: #e1e1e1ae;
+        position: fixed;
+        top: 0;
+        z-index: 99;
+        display: grid;
+        place-items: center;
+      }
+      .loader img {
+        width: 60vw;
+        border-radius: 50px;
+        box-shadow: 5px 5px 10px #e1e1e1, -5px -5px 10px #e1e1e1,
+          -15px -15px 20px #e1e1e1, 15px 15px 20px #e1e1e1,
+          -25px -25px 40px #e1e1e1, 25px 25px 40px #e1e1e1;
+      }
+    </style>
+    <script>
+      window.addEventListener("load", () => {
+        document.getElementById("loader").style.display = "none"
+      });
+    </script>
+
     <title>NAIL THE BRAIN || A better choice</title>
   </head>
   <body>
+    <div class="loader" id="loader" data-aos="zoom-in-up">
+      <img src="loader.gif" />
+    </div>
     <div id="root"></div>
     <!-- font awsome -->
     <link
@@ -51,7 +80,7 @@
       crossorigin="anonymous"
     />
     <!-- script for aos -->
-      
+
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
       AOS.init({
@@ -65,7 +94,12 @@
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"
     ></script>
-    
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js" integrity="sha512-K9tDZvc8nQXR1DMuT97sct9f40dilGp97vx7EXjswJA+/mKqJZ8vcZLifZDP+9t08osMLuiIjd4jZ0SM011Q+w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js"
+      integrity="sha512-K9tDZvc8nQXR1DMuT97sct9f40dilGp97vx7EXjswJA+/mKqJZ8vcZLifZDP+9t08osMLuiIjd4jZ0SM011Q+w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
   </body>
 </html>

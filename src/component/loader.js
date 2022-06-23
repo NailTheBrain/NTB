@@ -1,16 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 
-export default function Loader(props) {
-
+export default function Loader(props){ 
     return (
         <>
             {props.show && (
                 <>
-                    <div className='otp' style={{background:"black"}}>
-                    <img src={require("./images/loader.gif")} width={"500rem"}/>
+                    <div className='loader' >
+                    <img src={require("./images/loader.gif")} />
+                    <h2>
+                        <div>Loading.....</div>
+                        <div className="spinner-grow text-primary" role="status"></div>
+                        <div className="spinner-grow text-secondary" role="status"></div>
+                        <div className="spinner-grow text-success" role="status"></div>
+                        <div className="spinner-grow text-danger" role="status"></div>
+                        <div className="spinner-grow text-warning" role="status"></div>
+                        <div className="spinner-grow text-info" role="status"></div>
+                        <div className="spinner-grow text-light" role="status"></div>
+                    </h2>
                     </div>
                 </>
-            )}
+             )} 
         </>
     );
 }
