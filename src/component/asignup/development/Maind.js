@@ -5,7 +5,7 @@ import Split from 'react-split'
 import 'ace-builds/webpack-resolver'
 import 'ace-builds/src-noconflict/ext-language_tools'
 import Nav from '../academics/nav'
-import Cryptr from 'cryptr';
+// import Cryptr from 'cryptr';
 
 
 

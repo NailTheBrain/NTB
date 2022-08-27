@@ -9,6 +9,7 @@ const Login = async (props) => {
   };
   const res = await axios.post(`${host}user/login`, credentials)
     .catch(err => { return err.response })
+    localStorage.clear();
   localStorage.setItem("authtoken", res.data.authtoken);
   return res
 }
@@ -32,4 +33,25 @@ const Signup = async (props) => {
   return res
 }
 
-export default { Login, Signup };
+const avalability = async (props) => {
+  const res = await axios.get(`${host}user/check/${props.email}`)
+    .catch(err => { return err.response })
+  return res
+}
+
+const fetch = async(props)=>{
+  let auth = localStorage.getItem('authtoken')
+  if (!auth) {
+    return false
+  }
+
+    const res =  await axios.post(`${host}user/fetch`,{},{
+      headers: {
+        'auth-token': auth
+      },
+  })
+    .catch(err => {return err.response})
+
+    return res
+}
+export default { Login, Signup,avalability,fetch };

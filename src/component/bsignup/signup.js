@@ -43,6 +43,11 @@ export default function Signup() {
   const [showAlert, setshowAlert] = useState(false);
   const [textAlert, settextAlert] = useState("");
   const [warnAlert, setwarnAlert] = useState();
+  function alrt(a, b) {
+    setshowAlert(true);
+    setwarnAlert(a)
+    settextAlert(b);
+  }
   // Alert end
 
   // loader start
@@ -51,11 +56,34 @@ export default function Signup() {
 
   const [fname, setFName] = useState("");
   const [lname, setLName] = useState("");
-  const [mail, setMail] = useState("");
   const [pass, setPass] = useState("");
   const [conPass, setconPass] = useState("");
   const [password, setPassword] = useState(false);
   const [confirmPassword, setconfirmPassword] = useState(false);
+
+  // mail check start
+  const [mail, setMail] = useState("");
+  const [availshow, setavailshow] = useState(false);
+  const [avail, setavail] = useState(false);
+  const [msgshow, setmsgshow] = useState(false);
+
+  const chkavalablity = async () => {
+    if (mail.length >= 5) {
+      setavailshow(true)
+      let a = await link.avalability({
+        email: mail,
+      })
+      if (a.data === undefined) {
+        alrt(2, "Some server error please try later")
+      }
+      else {
+        setavailshow(false)
+        setmsgshow(true)
+        setavail(a.data.success);
+      }
+    }
+  }
+  // mail check end
 
   //otp start
   const [showotp, setshowotp] = useState(false);
@@ -98,42 +126,49 @@ export default function Signup() {
     setconfirmPassword(x === e);
     setconPass(e);
   }
+  
 
   async function sub() {
     if (window.confirm("Have you CHECKED your MAIL??")) {
-      if (data.type === "aup" && mail.split("@")[1] !== "miet.ac.in") {
-        setshowAlert(true);
-        setwarnAlert(1)
-        settextAlert("Please enter valid student mail id 😕");
-        setMail("");
+      // if (data.type === "aup" && mail.split("@")[1] !== "miet.ac.in") {
+      //   alrt(1, "Please enter valid student mail id 😕")
+      //   setMail("");
+      // } else
+      if (!avail) {
+        alrt(2, "Account already exist 😕")
       } else if (!mail.match(/[^A-z0-9]/)) {
-        setshowAlert(true);
-        setwarnAlert(1);
-        settextAlert("Please enter valid mail id 😕");
+        alrt(1, "Please enter valid mail id 😕")
       } else if (!password) {
-        setshowAlert(true);
-        setwarnAlert(2);
-        settextAlert("Please enter Password with right validation 😕");
+        alrt(2, "Please enter Password with right validation 😕")
       } else if (!confirmPassword) {
-        setshowAlert(true);
-        setwarnAlert(2);
-        settextAlert("Please Match the Password 😕");
-      } else {
+        alrt(2, "Please Match the Password 😕")
+      }else {
         setshowLoader(true)
         linkotp.Otpreq({
           email: mail,
-        }).then((req) => {
+        }).then(async (req) => {
           setshowLoader(false)
-          if (req.data === undefined || !req.data.success) {
-            setshowAlert(true);
-            setwarnAlert(2);
-            settextAlert("Some server error please try later 😕");
+          if (!req.data.success && req.data.error === "Already have a user") {
+          //   if (window.confirm("You have already requested for otp. Resend OTP or have previous one ??")) {
+          //     let a = await linkotp.Otpresend({
+          //       auth: props.token
+          //     })
+          //     if (a.data.success) {
+          //       alert("Otp resended")
+          //     } else {
+          //       alert("Some internal error please try later on..")
+          //     }
+          //   }
+              alrt(2,"Aready mail send to repective mail please try later on")
+          }
+          else if (req.data === undefined || !req.data.success) {
+            console.log(req);
+            alrt(2, "Some server error please try later 😕")
           }
           else {
             console.log("run");
             setotptoken(req.data.authtoken);
             setshowotp(true)
-            // setshowtoggle(true)
           }
         })
       }
@@ -168,19 +203,17 @@ export default function Signup() {
       }
 
       if (a.data.success) {
-        setshowAlert(true);
-        setwarnAlert(3);
-        settextAlert("Done, Now Login 👌");
+        alrt(3, "Done, Now Login 👌")
+        localStorage.clear();
+        localStorage.setItem("authtoken", a.data.authtoken);
         setTimeout(() => {
-          navigate("/field")
-        }, 4000);
+          navigate("/academics")
+        }, 2000);
       }
       else {
         setotp("")
         setshowotploading(false)
-        setshowAlert(true);
-        setwarnAlert(2);
-        settextAlert((a.data.error) ? a.data.error : "Some Internal error Please try later", "😕");
+        alrt(2, (a.data.error) ? a.data.error : "Some Internal error Please try later", "😕")
       }
     }
   }
@@ -233,11 +266,32 @@ export default function Signup() {
                 aria-describedby="emailHelp"
                 value={mail}
                 required
+                onBlur={chkavalablity}
               />
+
               <div className="inputDes">Email-id</div>
             </div>
-            <div id="emailHelp" className="form-text">
+            <div id="emailHelp" className="form-text" >
               {showmail}
+              
+              {availshow && (
+                <span className="text-success">
+                  &nbsp;&nbsp;&nbsp; Avalability checking &nbsp;
+                  <div className="spinner-border text-success" role="status">
+                  </div>
+                </span>
+              )}
+              {msgshow && (<>
+                {avail ? (<span className="text-success">
+                  &nbsp;&nbsp;&nbsp;✓ Availabe &nbsp;
+                </span>) :
+                  (<span className="text-danger">
+                    <br />
+                    &nbsp;&nbsp;&nbsp;✘ Already have an account or wrong format &nbsp;
+                  </span>)
+                }
+              </>
+              )}
             </div>
             <div className="mb-3 pass input1">
               <input
@@ -316,7 +370,7 @@ export default function Signup() {
       {/* otp */}
       <Otp
         show={showotp}
-        // toggle={showtoggle} 
+        token={otptoken}
         setshow={setshowotp}
         setotp={setotp}
         otp={otp}

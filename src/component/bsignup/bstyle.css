@@ -244,6 +244,15 @@ nav .fa-ellipsis-vertical {
   cursor: pointer;
   text-overflow: clip;
 }
+.otp-resend{
+  font-size: 2rem;
+  z-index: 99;
+  cursor: pointer;
+  color: red;
+  position: absolute;
+  right: 20px;
+  transform: translateY(50px);
+}
 .otp-box{
   width: 350px;
   height: 500px;

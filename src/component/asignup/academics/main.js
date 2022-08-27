@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect,useState} from 'react';
 import { Route, Routes } from 'react-router-dom';
 import "../../bsignup/bstyle.css";
 import Nav from "./nav"
@@ -6,23 +6,30 @@ import Home from "./home"
 import Books from "./books"
 import  "./academics.css"
 import Footer from '../../../footer';
-import link from "../../../link/books"
+import link from "../../../link/user"
 import { useNavigate } from "react-router-dom";
 
 export default function Maina() {
   const navigate = useNavigate();
+  const [userData, setUserData] = useState("")
 
   useEffect( async () => {
-    let a = await link.All();
+    let a = await link.fetch();
     if (a.status!==200)
-      navigate("/")
+      {navigate("/")}
+    else{
+      setUserData(a.data.user.name)
+    }
+    
   }, [])
   
 
 
   return (
     <div className="Main">
-      <Nav />
+      <Nav 
+        name = {userData}
+      />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route

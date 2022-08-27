@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import otp from '../../link/otp'
+import linkotp from '../../link/otp'
 
 const Otp = (props) => {
 
@@ -36,19 +36,6 @@ const Otp = (props) => {
   const chk = (a) => {
     props.setloading(true)
     props.setotp(a)
-    // if (a !== "111111") {
-    //   // props.setloading(false)
-    //   document.querySelectorAll(".txt").forEach((e) => {
-    //     e.value = ""
-    //     e.classList.remove("otp-clr")
-    //   })
-
-    //   document.getElementById("text-box").classList.add("otp-err")
-    //   document.getElementById("I").focus()
-    //   setTimeout(() => {
-    //     document.getElementById("text-box").classList.remove("otp-err")
-    //   }, 900)
-    // }
   }
 
   if (props.otp.length === 0) {
@@ -57,6 +44,29 @@ const Otp = (props) => {
       e.value = ""
       e.classList.remove("otp-clr")
     })
+  }
+  // resending the otp
+  const [res, setres] = useState(false)
+  resshow()
+  function resshow() {
+    let temp = setInterval(() => {
+      setres(true)
+      clear()
+    }, 1000 * 60 * 1.5);
+    function clear() {
+      clearInterval(temp)
+    }
+  }
+  const resend = async () => {
+    setres(false)
+    let a = await linkotp.Otpresend({
+      auth: props.token
+    })
+    if (a.data.success) {
+      alert("Otp resended")
+    } else {
+      alert("Some internal error please try later on..")
+    }
   }
   return (
     <>
@@ -111,6 +121,7 @@ const Otp = (props) => {
               <input type="text" className='txt' id='IV' maxLength={1} onKeyUp={() => run("III", "V", "IV")} />
               <input type="text" className='txt' id='V' maxLength={1} onKeyUp={() => run("IV", "VI", "V")} />
               <input type="text" className='txt' id='VI' maxLength={1} onKeyUp={() => run("V", "VI", "VI")} />
+              {res && (<div className='otp-resend' onClick={resend}>Resend</div>)}
             </div>
             {props.loading && (<h2>
               <div>Loading.....</div>

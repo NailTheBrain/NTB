@@ -38,6 +38,11 @@ export default function Signin() {
   const [showAlert, setshowAlert] = useState(false);
   const [textAlert, settextAlert] = useState("");
   const [warnAlert, setwarnAlert] = useState();
+  function alrt(a, b) {
+    setshowAlert(true);
+    setwarnAlert(a)
+    settextAlert(b);
+  }
   // Alert end
 
   const [password, setPassword] = useState(false);
@@ -52,21 +57,17 @@ export default function Signin() {
     setPassword(chk);
     setPass(e);
   }
+  
+// last submition check
 
   async function sub() {
     if (data.type === "ain" && mail.split("@")[1] !== "miet.ac.in") {
-      setshowAlert(true);
-      setwarnAlert(1);
-      settextAlert("Please enter valid student mail id 😕");
+      alrt(1,"Please enter valid student mail id 😕");
       setMail("");
     } else if (!mail.match(/[^A-z0-9]/)) {
-      setshowAlert(true);
-      setwarnAlert(1);
-      settextAlert("Please enter valid mail id 😕");
+      alrt(1,"Please enter valid mail id 😕");
     } else if (!password) {
-      setshowAlert(true);
-      setwarnAlert(2);
-      settextAlert("Please enter Password with right validation 😕");
+      alrt(2,"Please enter Password with right validation 😕");
     } else {
       let a
       if (data.type === "ain") {
@@ -82,17 +83,13 @@ export default function Signin() {
       }
 
       if (a.data.success) {
-        setshowAlert(true);
-        setwarnAlert(3);
-        settextAlert("Done 👌");
+        alrt(3,"Done 👌");
         setTimeout(() => {
           navigate("/academics")
         }, 2000);
       }
       else {
-        setshowAlert(true);
-        setwarnAlert(2);
-        settextAlert(a.data.error, "😕");
+        alrt(2,a.data.error, "😕");
       }
 
     }
