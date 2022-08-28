@@ -51,7 +51,7 @@
   width: 40%;
 }
 
-/* books section */
+/*================================================== books section ==================================================*/
 .books-top {
   width: 100%;
   min-height: 70vh;
@@ -221,7 +221,7 @@
   text-decoration: none;
 }
 
-/* books */
+/*================================================== books ==================================================*/
 .book {
   width: 100%;
   height: 100%;
@@ -305,4 +305,84 @@
   box-shadow: -2px 1px 10px black;
   background-color: rgba(0, 0, 0, 0.6);
   transform: scale(0.95);
+}
+
+.profile {
+  width: 100%;
+  min-height: 100vh;
+  margin: auto;
+  font-size: 2.5rem;
+  overflow: hidden;
+}
+.profile .heading {
+  margin-bottom: 5rem;
+}
+.profile .profile_inner {
+  width: 100%;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+.profile .profile_inner span {
+  width: 40%;
+  text-align: center;
+  color: var(--Iclr);
+}
+.profile .profile_inner div {
+  width: 30%;
+  margin: auto;
+}
+.profile .profile_inner div input {
+  width: 100%;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid black;
+  padding: 0 1rem;
+  color: var(--Vclr);
+}
+.profile .profile_inner div a {
+  color: var(--VIclr);
+  border: none;
+  text-decoration: none;
+}
+.profile .profile_inner div input[type=radio] {
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-left: 5rem;
+  cursor: pointer;
+}
+
+.changepass {
+  width: 100%;
+  font-size: 3rem;
+}
+.changepass .heading {
+  margin-bottom: 5rem;
+}
+.changepass .changepassIn {
+  width: 95%;
+  margin-bottom: 2rem;
+}
+.changepass .changepassIn span {
+  width: 40%;
+  color: var(--Iclr);
+}
+.changepass .changepassIn div {
+  width: 40%;
+}
+.changepass .changepassIn div input {
+  width: 100%;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid black;
+  padding: 0 1rem;
+  color: var(--Vclr);
+  margin-right: 1rem;
+}
+.changepass .changepassIn div i {
+  color: var(--VIclr);
+  cursor: pointer;
 }/*# sourceMappingURL=academics.css.map */

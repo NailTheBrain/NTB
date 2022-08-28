@@ -8,6 +8,7 @@ import  "./academics.css"
 import Footer from '../../../footer';
 import link from "../../../link/user"
 import { useNavigate } from "react-router-dom";
+import Profile from './Profile';
 
 export default function Maina() {
   const navigate = useNavigate();
@@ -60,6 +61,7 @@ export default function Maina() {
             />
           }
         />
+        <Route path="/profile/*" element={<Profile />} />
         {/* <Route path="/contact" element={<Contact />} /> */}
       </Routes>
       <Footer/>

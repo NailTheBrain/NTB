@@ -30,12 +30,14 @@ const Signup = async (props) => {
     },
 )
     .catch(err => { return err.response })
+    
   return res
 }
 
 const avalability = async (props) => {
   const res = await axios.get(`${host}user/check/${props.email}`)
     .catch(err => { return err.response })
+    console.log(res)
   return res
 }
 

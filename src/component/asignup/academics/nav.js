@@ -9,30 +9,37 @@ const Nav = (props) => {
   
  
  
-  // function scroll() {
-  //   let i = document.getElementById("toggle").classList;
-  //   // console.log(i);
-  //   if (i.contains("open")) {
-  //     i.remove("open");
-  //     document.getElementById("leftlink").classList.remove("openNav");
-  //   } else {
-  //     i.add("open");
-  //     document.getElementById("leftlink").classList.add("openNav");
-  //   }
-  // }
-  // document.querySelectorAll("a").forEach((e)=>{
-  //   e.addEventListener("click",()=>{
-  //     document.getElementById("leftlink").classList.remove("openNav");
-  //     document.getElementById("toggle").classList.remove("open");
-  //   })
-  // })
+  function scroll() {
+    let i = document.getElementById("toggle").classList;
+    if (i.contains("open")) {
+      i.remove("open");
+      document.getElementById("leftlink").classList.remove("openNav");
+    } else {
+      i.add("open");
+      document.getElementById("leftlink").classList.add("openNav");
+    }
+  }
+  document.querySelectorAll("a").forEach((e)=>{
+    e.addEventListener("click",()=>{
+      document.getElementById("leftlink").classList.remove("openNav");
+      document.getElementById("toggle").classList.remove("open");
+    })
+  })
 
   // logout==========
   
   const logout=()=>{
-    localStorage.clear();
-    navigate("/")
+    if(window.confirm("Are you sure you want to logout")){
+      localStorage.clear();
+      navigate("/")
+    }
   }
+
+  const profile=()=>{
+      navigate("/academics/profile")
+  }
+
+
 
 
   return (
@@ -43,11 +50,11 @@ const Nav = (props) => {
           <span>&nbsp;N</span>ail <span>T</span>he <span>B</span>rain
         </span>
       </div>
-      {/* <i
+      <i
         className="fa-solid fa-ellipsis-vertical"
         onClick={() => scroll()}
         id="toggle"
-      >hdf</i> */}
+      ></i>
       <div className="leftlink center" id="leftlink">
         <NavLink
           style={({ isActive }) => {
@@ -65,17 +72,21 @@ const Nav = (props) => {
         >
           Exam
         </NavLink>
-        <div
-         onClick={logout}
-          className="center a"
+        <NavLink
+          style={({ isActive }) => {
+            return { color: isActive ? "black" : "" };
+          }}
+          to={"/academics/profile"}
+          title="profile"
         >
           {props.name.split(" ")[0]}
-        </div>
+        </NavLink>
+        
         <div
          onClick={logout}
           className="center a"
         >
-          <i className="fas fa-sign-out-alt" style={{ overflow: "hidden" }}></i>
+          <i className="fas fa-sign-out-alt" title="Logout" style={{ overflow: "hidden" }}></i>
         </div>
       </div>
     </nav>

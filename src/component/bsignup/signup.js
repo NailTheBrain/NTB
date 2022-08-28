@@ -73,6 +73,7 @@ export default function Signup() {
       let a = await link.avalability({
         email: mail,
       })
+      console.log(a);
       if (a.data === undefined) {
         alrt(2, "Some server error please try later")
       }
